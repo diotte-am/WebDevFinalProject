@@ -1,7 +1,9 @@
 import React from "react";
 import {Link} from "react-router-dom";
+import Recents from "./recents";
 
 const Home = () => {
+    const loggedIn = true;
     return(
         <>
             <div className="container">
@@ -27,7 +29,13 @@ const Home = () => {
                 <Link to="detail" className="d-grid col-5 container align-content-center">
                     <button type="button" className="btn btn-dark m-2 fw-bold">Get Shipping Rates</button>
                 </Link>
+
+
+
+            <Recents />
+
         </>
+
 
     )
 
