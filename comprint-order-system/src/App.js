@@ -1,12 +1,36 @@
-import './App.css';
+import './vendors/bootstrap/bootstrap.min.css'
+import React from "react";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
+import Home from "./components/home"
+import Search from "./components/search";
+import Login from "./components/login";
+import Profile from "./components/profile"
+import Detail from "./components/detail";
 
 function App() {
   return (
-    <div className="App">
+    <div className="container">
 
-      <header className="App-header">
-          Comprint Order System
-      </header>
+        <BrowserRouter>
+            <div className="container">
+                <Routes>
+                    <Route path="/">
+                        <Route index
+                               element={<Home />} />
+                        <Route path="home"
+                               element={<Home />} />
+                        <Route path={"search"}
+                               element={<Search />} />
+                        <Route path={"login"}
+                               element={<Login />} />
+                        <Route path={"profile"}
+                               element={<Profile />} />
+                        <Route path={"detail"}
+                               element={<Detail />} />
+                    </Route>
+                </Routes>
+            </div>
+        </BrowserRouter>
     </div>
   );
 }
