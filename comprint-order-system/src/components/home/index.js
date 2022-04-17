@@ -6,11 +6,11 @@ const Home = () => {
     const loggedIn = false;
     return(
         <>
-            <div>
+            <Link to="login">
                 <button type="button" className="d-block float-end btn btn-outline-dark fw-bold">
                     {loggedIn ? 'Log Out' : 'Log In' }
                 </button>
-            </div>
+            </Link>
                 <img className="d-block mx-auto mt-4 mb-4" src='../images/comprint-logo.png' alt="comprintLogo"/>
 
 

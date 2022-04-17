@@ -21,7 +21,7 @@ const orderForm = () => {
                 <div className="row p-4">
                     <div className="col-3">
                         <label htmlFor="dueDate" className="form-label">Due Date</label>
-                        <input type="text" className="form-control" id="dueDate"
+                        <input type="date" className="form-control" id="dueDate"
                                placeholder="mm/dd/yy"/>
                     </div>
 
