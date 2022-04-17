@@ -1,4 +1,5 @@
 import './vendors/bootstrap/bootstrap.min.css'
+import './vendors/font-awesome/fontawesome-free-6.1.1-web/css/all.css'
 import React from "react";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Home from "./components/home"
@@ -6,6 +7,7 @@ import Search from "./components/search";
 import Login from "./components/login";
 import Profile from "./components/profile"
 import Detail from "./components/detail";
+import CreateOrder from "./components/create-order";
 
 function App() {
   return (
@@ -19,6 +21,8 @@ function App() {
                                element={<Home />} />
                         <Route path="home"
                                element={<Home />} />
+                        <Route path={"order"}
+                               element={<CreateOrder />} />
                         <Route path={"search"}
                                element={<Search />} />
                         <Route path={"login"}
