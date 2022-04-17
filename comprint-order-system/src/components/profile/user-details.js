@@ -25,13 +25,14 @@ const UserDetails = ({
         details = ""
     }
     return(
-        <div className="container bg-light mt-4 p-3 d-grid rounded">
+        <div className="container bg-light mt-3 p-3 d-grid rounded">
             <h5 className="fw-bold">{user.name}</h5>
             <div className="container">
                 <div>Department: {user.department}</div>
                 <div>Phone: {user.phonenumber} ext. {user.extension}</div>
                 <div>Email: {user.email}</div>
             </div>
+
 
             {details}
         </div>
