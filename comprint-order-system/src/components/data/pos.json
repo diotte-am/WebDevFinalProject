@@ -1,0 +1,46 @@
+[
+    { "PONumber": "12356C-12",
+        "status" : "RECEIVED",
+        "dateAdded" : "4/16/22",
+        "lastModified" : {
+            "date": "4/17/22",
+            "by": "adiotte"
+        },
+        "dueDate" : "5/6/22",
+        "quantity" : "500",
+        "location" : {
+            "fullFront": {
+                "flashes": 1,
+                "spots" : 2
+            },
+            "rightSleeve": {
+                "flashes": 2,
+                "spots" : 6
+            }
+        },
+        "garmentTypes" : ["Gildan 18500 (royal)", "Gildan 2000 (royal)"]
+    },
+
+    { "PONumber": "WILMINGTONBLD2022",
+        "status" : "PROOFED",
+        "dateAdded" : "4/1/22",
+        "lastModified" : {
+            "date": "4/17/22",
+            "by": "adiotte"
+        },
+        "dueDate" : "6/6/22",
+        "quantity" : "2000",
+        "location" : {
+            "leftChest": {
+                "flashes": 1,
+                "spots" : 2
+            },
+            "fullBack": {
+                "flashes": 2,
+                "spots" : 7
+            }
+        },
+        "garmentTypes" : ["Gildan 18500 (black)", "Next Level 3600 (safety green)"]
+    }
+
+]
