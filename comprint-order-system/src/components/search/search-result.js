@@ -6,14 +6,19 @@ const SearchResult = ({result}
         <>
             <div className="d-flex">
                 <div className=" p-2 pe-3">
-                    <button type="button" className="btn btn-info btn-sm fw-bold">View Details
+                    <button type="button" className="btn btn-info btn-sm fw-bold ">View Details
                     </button>
                 </div>
 
                 <div className=" pt-2 pb-2">
                     PO Number: {result.PONumber}
                     <br/>
-                    Status: {result.status}
+                    Status: <span className={`
+                        ${result.status === "RECEIVED" ?  "list-group-item-secondary": ''}
+                        ${result.status === "PROOFED" ?  "list-group-item-warning": ''}
+                        ${result.status === "APPROVED" ?  "list-group-item-info": ''}
+                        ${result.status === "PRINTED" ?  "list-group-item-dark": ''}
+                        `}>{result.status}</span>
                     <br/>
                     Due Date: {result.dueDate}
                     <br/>

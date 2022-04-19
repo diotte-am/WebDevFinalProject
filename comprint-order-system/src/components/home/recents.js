@@ -1,6 +1,7 @@
 import React from "react";
 
 const Recents = () => {
+
     return(
         <>
             <div className="container bg-light col-10 mt-4 d-grid text-center rounded">

@@ -18,6 +18,10 @@ const Home = () => {
                     Comprint Order System
                 </h2>
 
+            <p className="container rounded ps-3 pe-3 p-2 alert-light text-center"> This is a database of all active orders, please email admin@comprint.com for information on any orders that have already been shipped or invoiced.
+
+            </p>
+
 
 
 

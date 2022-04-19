@@ -20,9 +20,9 @@ const Search = () => {
             </h4>
 
             <div className="container ps-3 pe-3">
-                <p className="form-label mt-4 left">Search by a term:</p>
+                <p className="form-label mt-4 left">Search by purchase order number, client name, due date, or date received:</p>
                 <div className="input-group">
-                    <select className="form-select pb-2" id="searchParameters" aria-label="Example select with button addon">
+                    <select className="form-select pb-2" id="searchParameters" aria-label="Search by Parameter">
                         <option defaultValue>Select</option>
                         <option value="PONumber">PO Number</option>
                         <option value="ClientName">Client Name</option>
@@ -33,14 +33,31 @@ const Search = () => {
                     <button className="btn btn-info btn-dark fw-bold" type="button">Search</button>
                 </div>
 
-                <p className="form-label mt-4">View all orders:</p>
-                <div className="input-group">
-                    <select className="form-select" id="searchParametersAll" aria-label="Example select with button addon">
-                        <option value="AllOrders" defaultValue>All Orders</option>
-                        <option value="AllOrdersReceived">to be proofed</option>
-                        <option value="AllOrdersProofed">waiting for art approval</option>
-                        <option value="AllOrdersApproved">in production</option>
-                        <option value="AllOrdersPrinted">ready to be invoiced</option>
+                <div className="container mt-4 list-group">
+                    <div className="p-1">
+                        Find orders by status:
+                    </div>
+                    <div className="list-group-item-secondary p-1">
+                        RECEIVED: PO order has been acknowledged, but art proof has not yet been sent to client.
+                    </div>
+                    <div className="list-group-item-warning p-1">
+                        PROOFED: Art proof has been sent to client, but has not yet been approved.
+                    </div>
+                    <div className="list-group-item-info p-1">
+                        APPROVED: Art proof has been approved by client, but the order has not yet been printed.
+                    </div>
+                    <div className="list-group-item-dark p-1">
+                        PRINTED: Order is complete, ready to be shipped and invoiced.
+                    </div>
+
+                </div>
+                <div className="input-group mt-4">
+                    <select className="form-select" id="searchParametersAll" aria-label="Search by Status">
+                        <option value="ALL" defaultValue>All Orders</option>
+                        <option value="RECEIVED">RECEIVED</option>
+                        <option value="PROOFED">PROOFED</option>
+                        <option value="APPROVED">APPROVED</option>
+                        <option value="PRINTED">PRINTED</option>
                     </select>
                     <button className="btn btn-info  fw-bold text-dark" type="button">View</button>
                 </div>

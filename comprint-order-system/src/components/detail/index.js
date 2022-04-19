@@ -19,7 +19,7 @@ const detail = () => {
                 Get Shipping Rate
             </h4>
 
-
+            <hr />
             <ShippingDetails />
 
         </>

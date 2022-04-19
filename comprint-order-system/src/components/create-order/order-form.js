@@ -1,6 +1,24 @@
 import React from "react";
+import {useState} from "react";
+import PrintLocations from "./print-locations"
 
-const orderForm = () => {
+const locations = [
+    {location: "Left Chest", flashes: 2, colors: 6}
+]
+const OrderForm = () => {
+    const[printLocations, setPrintLocations] = useState(locations);
+    const addLocation = () => {
+
+        const newPrintLocation = {
+            location: "Full Front",
+            flashes: 2,
+            colors: 5
+        };
+
+        const newPrintLocations = [newPrintLocation, ...printLocations];
+        setPrintLocations(newPrintLocations);
+    }
+
     return(
         <>
             <div className="container col-11 bg-light mt-4 d-grid rounded">
@@ -54,8 +72,9 @@ const orderForm = () => {
                 <div className="row p-4">
                     <hr/>
                     <p>Print locations (choose all that apply):
-
                     </p>
+
+
 
                     <div className="form-check form-check-inline">
                         <div className="form-check form-check-inline">
@@ -101,8 +120,20 @@ const orderForm = () => {
                         </div>
 
                      </div>
+                    <div className="d-block align-items-center">
+                        <button onClick={() => {addLocation()}} className="m-3 btn btn-secondary btn-sm">
+                            Add Location
+                        </button>
+                    </div>
+
+                    <div className="d-block align-items-center">
+
+                    </div>
+
 
                 </div>
+                <PrintLocations locations={printLocations}/>
+
                 <div className="d-block align-items-center">
                     <button className="m-3 btn btn-secondary">
                         Submit
@@ -119,4 +150,4 @@ const orderForm = () => {
     )
 
 }
-export default orderForm;
+export default OrderForm;

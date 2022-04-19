@@ -10,6 +10,19 @@
     "birthdate" : "08/16/1986",
     "fullTime" : true
 
+  },
+
+  {
+    "username": "mamero",
+    "name" : "Mike Amero",
+    "password" : "secretpassword",
+    "department" : "PRODUCTION",
+    "extension" : "13",
+    "email" : "mike@comprintinc.com",
+    "dateofhire" : "05/98",
+    "birthdate" : "12/12/1970",
+    "fullTime" : true
+
   }
 
 ]
