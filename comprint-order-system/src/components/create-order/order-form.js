@@ -1,23 +1,27 @@
 import React from "react";
 import {useState} from "react";
 import PrintLocations from "./print-locations"
-
+import {useNavigate} from "react-router-dom";
 
 
 
 const OrderForm = () => {
-    const[printLocations, setPrintLocations] = useState([]);
+    const navigate = useNavigate()
+    const[printLocations, setPrintLocations] = useState([
+    ]);
 
     const addLocation = () => {
         if(printLocations.location !== undefined && printLocations.location !== "DEFAULT"){
-            const newPrintLocation = {
-                location: printLocations.location,
-                flashes: 2,
-                colors: 5
-            };
-            const newPrintLocations = [newPrintLocation, ...printLocations];
-            setPrintLocations(newPrintLocations);
-            printLocations.location = "DEFAULT"
+            if(printLocations.flashes !== undefined) {
+                const newPrintLocation = {
+                    location: printLocations.location,
+                    flashes: printLocations.flashes,
+                    colors: printLocations.colors
+                };
+
+                const newPrintLocations = [newPrintLocation, ...printLocations];
+                setPrintLocations(newPrintLocations)
+            }
         } else {
             alert("Please choose a new imprint location!")
         }
@@ -27,6 +31,16 @@ const OrderForm = () => {
     const deleteLocation = (locToDelete) => {
         const newLocations = printLocations.filter((loc) => loc === locToDelete ? false : true)
         setPrintLocations(newLocations)
+    }
+
+    const setFlashHandler = (e) => {
+        const value = e.target.value;
+        printLocations.flashes = value;
+    }
+
+    const setColorHandler = (e) => {
+        const value = e.target.value;
+        printLocations.colors = value;
     }
 
     return(
@@ -86,7 +100,7 @@ const OrderForm = () => {
                     <div className="container input-group-t mt-4 row">
                         <div className="col-3">
                             Location:
-                            <select value={printLocations.location} onChange={(e) => printLocations.location = (e.target.value)} className="form-select" id="searchParametersAll" aria-label="Search by Status">
+                            <select defaultValue={printLocations.location} onChange={(e) => printLocations.location = (e.target.value)} className="form-select" id="searchParametersAll" aria-label="Search by Status">
                                 <option value="DEFAULT">Choose Location</option>
                                 <option value="Full Front">Full Front</option>
                                 <option value="Full Back">Full Back</option>
@@ -99,15 +113,18 @@ const OrderForm = () => {
                             </select>
                         </div>
                         <div className="col-2">
-                            Flashes: <select className="form-select" id="FLASH" aria-label="FLASHES">
-                            <option value="0" defaultValue>0</option>
+                            Flashes:
+                            <select defaultValue="choose" onChange={setFlashHandler} className="form-select" id="FLASH" aria-label="FLASHES">
+                                <option value="choose">Choose</option>
+                                <option value="0" >0</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                         </select>
                         </div>
                         <div className="col-2">
-                            # of Colors: <select className="form-select" id="COLOR" aria-label="COLORS">
-                            <option value="1" defaultValue>1 Spot</option>
+                            # of Colors: <select onChange={setColorHandler} className="form-select" id="COLOR" aria-label="COLORS">
+                            <option value="0">Choose</option>
+                            <option value="1">1 Spot</option>
                             <option value="2">2 Spots</option>
                             <option value="3">3 Spots</option>
                             <option value="4">4 Spots</option>
