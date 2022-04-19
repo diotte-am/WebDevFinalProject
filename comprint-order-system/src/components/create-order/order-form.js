@@ -1,12 +1,12 @@
 import React from "react";
 import {useState} from "react";
 import PrintLocations from "./print-locations"
-import {useNavigate} from "react-router-dom";
+
 
 
 
 const OrderForm = () => {
-    const navigate = useNavigate()
+
     const[printLocations, setPrintLocations] = useState([
     ]);
 
