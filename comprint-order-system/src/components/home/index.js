@@ -12,20 +12,13 @@ const Home = () => {
                 </button>
             </Link>
                 <img className="d-block mx-auto mt-4 mb-4" src='../images/comprint-logo.png' alt="comprintLogo"/>
-
-
                 <h2 className="alert-dark text-center fw-bold pt-1 pb-2 mb-3">
                     Comprint Order System
                 </h2>
 
-            <p className="container rounded ps-3 pe-3 p-2 alert-light text-center"> This is a database of all active orders, please email admin@comprint.com for information on any orders that have already been shipped or invoiced.
-
+            <p className="container rounded ps-3 pe-3 p-2 alert-light text-center">
+                This is a database of all active orders, please email admin@comprint.com for information on any orders that have already been shipped or invoiced.
             </p>
-
-
-
-
-
                 <Link to="search" className="d-grid col-5 container align-content-center">
                     <button type="button" className="btn btn-info m-2 text-dark fw-bold">Search Orders</button>
                 </Link>
@@ -41,15 +34,9 @@ const Home = () => {
                 <Link to="detail" className="d-grid col-5 container align-content-center">
                     <button type="button" className="btn btn-dark m-2 fw-bold">Get Shipping Rates</button>
                 </Link>
-
-
             <Recents />
 
         </>
-
-
-    )
-
-};
+    )};
 
 export default Home;

@@ -2,21 +2,31 @@ import React from "react";
 import {useState} from "react";
 import PrintLocations from "./print-locations"
 
-const locations = [
-    {location: "Left Chest", flashes: 2, colors: 6}
-]
+
+
+
 const OrderForm = () => {
-    const[printLocations, setPrintLocations] = useState(locations);
+    const[printLocations, setPrintLocations] = useState([]);
+
     const addLocation = () => {
+        if(printLocations.location !== undefined && printLocations.location !== "DEFAULT"){
+            const newPrintLocation = {
+                location: printLocations.location,
+                flashes: 2,
+                colors: 5
+            };
+            const newPrintLocations = [newPrintLocation, ...printLocations];
+            setPrintLocations(newPrintLocations);
+            printLocations.location = "DEFAULT"
+        } else {
+            alert("Please choose a new imprint location!")
+        }
 
-        const newPrintLocation = {
-            location: "Full Front",
-            flashes: 2,
-            colors: 5
-        };
+    }
 
-        const newPrintLocations = [newPrintLocation, ...printLocations];
-        setPrintLocations(newPrintLocations);
+    const deleteLocation = (locToDelete) => {
+        const newLocations = printLocations.filter((loc) => loc === locToDelete ? false : true)
+        setPrintLocations(newLocations)
     }
 
     return(
@@ -70,69 +80,58 @@ const OrderForm = () => {
                 </div>
 
                 <div className="row p-4">
+
                     <hr/>
-                    <p>Print locations (choose all that apply):
-                    </p>
-
-
-
-                    <div className="form-check form-check-inline">
-                        <div className="form-check form-check-inline">
-                            <input className="form-check-input list-group-item-secondary" type="checkbox" id="leftChest" value="leftChest"/>
-                                <label className="form-check-label" htmlFor="leftChest">Left Chest</label>
+                    Add each print location:
+                    <div className="container input-group-t mt-4 row">
+                        <div className="col-3">
+                            Location:
+                            <select value={printLocations.location} onChange={(e) => printLocations.location = (e.target.value)} className="form-select" id="searchParametersAll" aria-label="Search by Status">
+                                <option value="DEFAULT">Choose Location</option>
+                                <option value="Full Front">Full Front</option>
+                                <option value="Full Back">Full Back</option>
+                                <option value="Left Chest">Left Chest</option>
+                                <option value="Right Chest">Right Chest</option>
+                                <option value="Right Sleeve">Right Sleeve</option>
+                                <option value="Left Sleeve">Left Sleeve</option>
+                                <option value="Back Yoke">Back Yoke</option>
+                                <option value="Other">Other</option>
+                            </select>
                         </div>
-                        <div className="form-check form-check-inline">
-                            <input className="form-check-input list-group-item-secondary" type="checkbox" id="rightChest" value="rightChest"/>
-                                <label className="form-check-label" htmlFor="inlineCheckbox2">Right Chest</label>
+                        <div className="col-2">
+                            Flashes: <select className="form-select" id="FLASH" aria-label="FLASHES">
+                            <option value="0" defaultValue>0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                        </select>
                         </div>
-                        <div className="form-check form-check-inline">
-                            <input className="form-check-input list-group-item-secondary" type="checkbox" id="fullFront" value="fullFront"/>
-                                <label className="form-check-label" htmlFor="rightChest">Full Front</label>
+                        <div className="col-2">
+                            # of Colors: <select className="form-select" id="COLOR" aria-label="COLORS">
+                            <option value="1" defaultValue>1 Spot</option>
+                            <option value="2">2 Spots</option>
+                            <option value="3">3 Spots</option>
+                            <option value="4">4 Spots</option>
+                            <option value="5">5 Spots</option>
+                            <option value="6">6 Spots</option>
+                            <option value="7">7 Spots</option>
+                            <option value="8">8 Spots</option>
+                            <option value="9">9 Spots</option>
+                            <option value="10">10 Spots</option>
+                            <option value="PROCESS">Process</option>
+                        </select>
                         </div>
-                        <div className="form-check form-check-inline">
-                            <input className="form-check-input list-group-item-secondary" type="checkbox" id="fullBack" value="fullBack"/>
-                            <label className="form-check-label" htmlFor="fullBack">Full Back</label>
-                        </div>
+                    </div>
 
-                        <div className="form-check form-check-inline">
-                            <input className="form-check-input list-group-item-secondary" type="checkbox" id="rightSleeve" value="rightSleeve"/>
-                            <label className="form-check-label" htmlFor="rightSleeve">Right Sleeve </label>
-                        </div>
-
-                        <div className="form-check form-check-inline">
-                            <input className="form-check-input list-group-item-secondary" type="checkbox" id="leftSleeve" value="leftSleeve"/>
-                            <label className="form-check-label" htmlFor="leftSleeve">Left Sleeve </label>
-                        </div>
-
-                        <div className="form-check form-check-inline">
-                            <input className="form-check-input list-group-item-secondary" type="checkbox" id="backYoke" value="backYoke"/>
-                            <label className="form-check-label" htmlFor="backYoke">Back Yoke </label>
-                        </div>
-
-                        <div className="form-check form-check-inline">
-                            <input className="form-check-input list-group-item-secondary" type="checkbox" id="lowBack" value="lowBack"/>
-                            <label className="form-check-label" htmlFor="lowBack">Low Back </label>
-                        </div>
-
-                        <div className="form-check form-check-inline">
-                            <input className="form-check-input list-group-item-secondary" type="checkbox" id="other" value="other"/>
-                            <label className="form-check-label" htmlFor="other">Other </label>
-                        </div>
-
-                     </div>
                     <div className="d-block align-items-center">
                         <button onClick={() => {addLocation()}} className="m-3 btn btn-secondary btn-sm">
                             Add Location
                         </button>
                     </div>
-
-                    <div className="d-block align-items-center">
-
-                    </div>
-
-
+                    <PrintLocations
+                        locations={printLocations}
+                        deleteLocation = {deleteLocation}/>
                 </div>
-                <PrintLocations locations={printLocations}/>
+                <hr/>
 
                 <div className="d-block align-items-center">
                     <button className="m-3 btn btn-secondary">

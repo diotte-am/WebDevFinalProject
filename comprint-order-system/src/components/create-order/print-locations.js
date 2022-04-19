@@ -1,10 +1,11 @@
 import PrintLocation from "./print-location";
+import React from "react";
 
-const PrintLocations = ({locations}) => {
+const PrintLocations = ({locations, deleteLocation}) => {
     return(
         <div className="container list-group">
             {locations.map(loc =>
-                <PrintLocation location={loc} key={loc.location}/>
+                <PrintLocation location={loc} deleteLocation={deleteLocation} key={loc.location}/>
             )}
 
 

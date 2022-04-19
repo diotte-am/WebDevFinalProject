@@ -1,10 +1,10 @@
 import React from "react";
 
-const PrintLocation = ({location}) => {
+const PrintLocation = ({location, deleteLocation}) => {
     return (
-        <div className="list-group-item">
+        <div className="container list-group-item">
             <div className="float-end">
-                <button onClick={() => {alert("delete " + location.location)}} className="btn btn-sm btn-outline-secondary mt-2">
+                <button onClick={() => deleteLocation(location)} className="btn btn-sm btn-outline-secondary mt-2">
                     Delete
 
                 </button>
@@ -13,9 +13,6 @@ const PrintLocation = ({location}) => {
           <br/>
             Flashes: {location.flashes}
             <br/> Colors: {location.colors}
-
-
-
         </div>
     )
 
