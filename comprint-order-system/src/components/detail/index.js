@@ -2,7 +2,7 @@ import React from "react";
 import ShippingDetails from "./shipping-details";
 import {Link} from "react-router-dom";
 
-const detail = () => {
+const Detail = () => {
     return(
         <>
             <div className="bg-black d-grid fw-bold">
@@ -16,7 +16,7 @@ const detail = () => {
 
             </div>
             <h4 className="alert-light text-dark fw-bold p-2">
-                Get Shipping Rate
+                Details
             </h4>
 
             <hr />
@@ -26,4 +26,4 @@ const detail = () => {
     )
 
 }
-export default detail;
+export default Detail;

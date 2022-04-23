@@ -51,6 +51,7 @@ const Search = () => {
                     </div>
 
                 </div>
+
                 <div className="input-group mt-4">
                     <select className="form-select" id="searchParametersAll" aria-label="Search by Status">
                         <option value="ALL" defaultValue>All Orders</option>

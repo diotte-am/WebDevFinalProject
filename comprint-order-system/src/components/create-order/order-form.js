@@ -10,21 +10,22 @@ const OrderForm = () => {
     const[printLocations, setPrintLocations] = useState([
     ]);
 
-    const addLocation = () => {
-        if(printLocations.location !== undefined && printLocations.location !== "DEFAULT"){
-            if(printLocations.flashes !== undefined) {
-                const newPrintLocation = {
-                    location: printLocations.location,
-                    flashes: printLocations.flashes,
-                    colors: printLocations.colors
-                };
+    const[orderForm, setOrderForm] = useState([]);
 
-                const newPrintLocations = [newPrintLocation, ...printLocations];
-                setPrintLocations(newPrintLocations)
-            }
-        } else {
-            alert("Please choose a new imprint location!")
-        }
+
+    const addLocation = () => {
+                if (printLocations.location !== undefined){
+                    const newPrintLocation = {
+                        location: printLocations.location,
+                        flashes: printLocations.flashes,
+                        colors: printLocations.colors
+                    };
+
+                    const newPrintLocations = [newPrintLocation, ...printLocations];
+                    setPrintLocations(newPrintLocations)
+                } else {
+                    alert("Please choose an imprint location!")
+                }
 
     }
 
@@ -43,19 +44,55 @@ const OrderForm = () => {
         printLocations.colors = value;
     }
 
+    const handlePONumber = (e) => {
+        orderForm.PONumber = e.target.value;
+
+    }
+
+    const handleClient = (e) => {
+        orderForm.client = e.target.value;
+    }
+
+    const handleDueDate = (e) => {
+        orderForm.dueDate = e.target.value;
+    }
+
+    const handleQuantity = (e) => {
+        orderForm.quantity = e.target.value;
+    }
+
+    const handleAddress = (e) => {
+        orderForm.address = e.target.value;
+    }
+
+    const handleState = (e) => {
+        orderForm.state = e.target.value;
+    }
+
+    const handleZip = (e) => {
+        orderForm.zip = e.target.value;
+    }
+
+    const handleSumbit = () => {
+        orderForm.location = printLocations;
+
+        console.log(orderForm)
+    }
+
+
     return(
         <>
             <div className="container col-11 bg-light mt-4 d-grid rounded">
                 <div className="row p-4">
                     <div className=" col-3">
                         <label htmlFor="PONumber" className="form-label">PO Number</label>
-                        <input type="text" className="form-control" id="PONumber"
+                        <input onChange={handlePONumber} type="text" className="form-control" id="PONumber"
                                placeholder="PO Number"/>
                     </div>
 
                     <div className=" col-3">
                         <label htmlFor="client" className="form-label">Client Name</label>
-                        <input type="text" className="form-control" id="client"
+                        <input onChange={handleClient} type="text" className="form-control" id="client"
                                placeholder="Client name"/>
                     </div>
                 </div>
@@ -63,32 +100,32 @@ const OrderForm = () => {
                 <div className="row p-4">
                     <div className="col-3">
                         <label htmlFor="dueDate" className="form-label">Due Date</label>
-                        <input type="date" className="form-control" id="dueDate"
+                        <input onChange={handleDueDate} type="date" className="form-control" id="dueDate"
                                placeholder="mm/dd/yy"/>
                     </div>
 
                     <div className="col-2">
                         <label htmlFor="quantity" className="form-label">Quantity</label>
-                        <input type="text" className="form-control" id="quantity"
+                        <input onChange={handleQuantity} type="text" className="form-control" id="quantity"
                                placeholder="Enter quantity"/>
                     </div>
                 </div>
 
                 <div className="row p-4">
                     <div className="col-6">
-                        <label htmlFor="address1" className="form-label">Address</label>
-                        <input type="text" className="form-control" id="address1"
+                        <label  htmlFor="address" className="form-label">Address</label>
+                        <input onChange={handleAddress} type="text" className="form-control" id="address"
                                placeholder="123 Street Name"/>
                     </div>
 
                     <div className="col-2">
-                        <label htmlFor="quantity" className="form-label">State</label>
-                        <input type="text" className="form-control" id="state"
+                        <label htmlFor="state" className="form-label">State</label>
+                        <input onChange={handleState} type="text" className="form-control" id="state"
                                placeholder="ex: MA"/>
                     </div>
                     <div className="col-2">
-                        <label htmlFor="quantity" className="form-label">Zip</label>
-                        <input type="text" className="form-control" id="zip"
+                        <label htmlFor="zip" className="form-label">Zip</label>
+                        <input onChange={handleZip} type="text" className="form-control" id="zip"
                                placeholder="ex: 02466"/>
                     </div>
                 </div>
@@ -101,7 +138,7 @@ const OrderForm = () => {
                         <div className="col-3">
                             Location:
                             <select defaultValue={printLocations.location} onChange={(e) => printLocations.location = (e.target.value)} className="form-select" id="searchParametersAll" aria-label="Search by Status">
-                                <option value="DEFAULT">Choose Location</option>
+                                <option value="tbd">Choose Location</option>
                                 <option value="Full Front">Full Front</option>
                                 <option value="Full Back">Full Back</option>
                                 <option value="Left Chest">Left Chest</option>
@@ -114,8 +151,8 @@ const OrderForm = () => {
                         </div>
                         <div className="col-2">
                             Flashes:
-                            <select defaultValue="choose" onChange={setFlashHandler} className="form-select" id="FLASH" aria-label="FLASHES">
-                                <option value="choose">Choose</option>
+                            <select defaultValue="tbd" onChange={setFlashHandler} className="form-select" id="FLASH" aria-label="FLASHES">
+                                <option value="tbd">Choose</option>
                                 <option value="0" >0</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
@@ -123,7 +160,7 @@ const OrderForm = () => {
                         </div>
                         <div className="col-2">
                             # of Colors: <select onChange={setColorHandler} className="form-select" id="COLOR" aria-label="COLORS">
-                            <option value="0">Choose</option>
+                            <option value="tbd">Choose</option>
                             <option value="1">1 Spot</option>
                             <option value="2">2 Spots</option>
                             <option value="3">3 Spots</option>
@@ -134,7 +171,6 @@ const OrderForm = () => {
                             <option value="8">8 Spots</option>
                             <option value="9">9 Spots</option>
                             <option value="10">10 Spots</option>
-                            <option value="PROCESS">Process</option>
                         </select>
                         </div>
                     </div>
@@ -150,16 +186,14 @@ const OrderForm = () => {
                 </div>
                 <hr/>
 
-                <div className="d-block align-items-center">
-                    <button className="m-3 btn btn-secondary">
-                        Submit
-                    </button>
 
-                </div>
 
             </div>
-
-
+            <div className="d-block align-items-center">
+                <button onClick={() => {handleSumbit()}} className="m-3 btn btn-secondary btn-sm">
+                    Submit
+                </button>
+            </div>
 
         </>
 

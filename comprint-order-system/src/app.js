@@ -8,6 +8,8 @@ import Login from "./components/login";
 import Profile from "./components/profile"
 import Detail from "./components/detail";
 import CreateOrder from "./components/create-order";
+import SearchResultDetail from "./components/search/search-result-detail";
+import ShippingDetails from "./components/detail/shipping-details";
 
 function App() {
   return (
@@ -30,7 +32,9 @@ function App() {
                         <Route path={"profile"}
                                element={<Profile />} />
                         <Route path={"detail"}
-                               element={<Detail />} />
+                               element={<Detail/>} />
+                        <Route path={"search/detail"}
+                               element={<SearchResultDetail/>} />
                     </Route>
                 </Routes>
             </div>

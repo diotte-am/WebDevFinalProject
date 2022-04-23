@@ -1,24 +1,26 @@
 import React from "react";
+import SearchResultDetail from "./search-result-detail";
+import {useNavigate} from "react-router-dom";
+import StatusConditional from "./status-conditional";
 
-const SearchResult = ({result}
-) => {
+const SearchResult = ({result}) => {
+    const navigate = useNavigate()
+    const number = result.PONumber;
+    const handleClick = () => {
+        navigate("/search/detail", {state: {result}})
+    }
     return(
         <>
             <div className="d-flex">
                 <div className=" p-2 pe-3">
-                    <button type="button" className="btn btn-info btn-sm fw-bold ">View Details
+                    <button onClick={handleClick} type="button" className="btn btn-info btn-sm fw-bold ">View Details
                     </button>
                 </div>
 
                 <div className=" pt-2 pb-2">
                     PO Number: {result.PONumber}
                     <br/>
-                    Status: <span className={`
-                        ${result.status === "RECEIVED" ?  "list-group-item-secondary": ''}
-                        ${result.status === "PROOFED" ?  "list-group-item-warning": ''}
-                        ${result.status === "APPROVED" ?  "list-group-item-info": ''}
-                        ${result.status === "PRINTED" ?  "list-group-item-dark": ''}
-                        `}>{result.status}</span>
+                    Status: <StatusConditional result={result}/>
                     <br/>
                     Due Date: {result.dueDate}
                     <br/>
