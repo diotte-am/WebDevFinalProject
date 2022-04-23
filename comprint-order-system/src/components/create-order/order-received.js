@@ -1,9 +1,7 @@
 import React from "react";
 import {Link, useLocation} from "react-router-dom";
-import SearchResultDetail from "../search/search-result-detail";
 import StatusConditional from "../search/status-conditional";
-import RenderLocationItem from "../search/render-location-item";
-import SearchResult from "../search/search-result";
+
 
 const OrderReceived = () => {
     const {state} = useLocation();

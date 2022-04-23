@@ -1,6 +1,6 @@
 import React from "react";
 import ProtectedUserDetails from "./protected-user-details";
-import {Link, useNavigate} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 
 const UserDetails = ({
                          user = {
