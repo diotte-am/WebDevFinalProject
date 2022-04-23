@@ -2,9 +2,6 @@ import React from "react";
 import {useState} from "react";
 import PrintLocations from "./print-locations"
 
-
-
-
 const OrderForm = () => {
 
     const[printLocations, setPrintLocations] = useState([
@@ -75,7 +72,7 @@ const OrderForm = () => {
 
     const handleSumbit = () => {
         orderForm.location = printLocations;
-
+        setOrderForm(orderForm)
         console.log(orderForm)
     }
 

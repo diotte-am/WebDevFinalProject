@@ -1,11 +1,9 @@
 import React from "react";
-import SearchResultDetail from "./search-result-detail";
 import {useNavigate} from "react-router-dom";
 import StatusConditional from "./status-conditional";
 
 const SearchResult = ({result}) => {
     const navigate = useNavigate()
-    const number = result.PONumber;
     const handleClick = () => {
         navigate("/search/detail", {state: {result}})
     }

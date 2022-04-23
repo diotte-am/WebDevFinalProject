@@ -1,8 +1,6 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
 import StatusConditional from "./status-conditional";
-import pos from "../data/pos.json";
-import SearchResult from "./search-result";
 import RenderLocationItem from "./render-location-item";
 
 
