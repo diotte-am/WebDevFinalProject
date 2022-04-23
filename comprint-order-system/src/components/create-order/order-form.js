@@ -75,7 +75,9 @@ const OrderForm = () => {
     const handleSumbit = () => {
         orderForm.location = printLocations;
         setOrderForm(orderForm)
-        console.log(orderForm)
+        const date = new Date()
+        orderForm.dateAdded = date.getFullYear() + "-" + date.getMonth() + "-" + date.getDate()
+        orderForm.status = "RECEIVED"
         navigate("/order/received", {state: {orderForm}})
     }
 
