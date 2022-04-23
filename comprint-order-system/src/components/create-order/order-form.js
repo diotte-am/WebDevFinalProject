@@ -106,7 +106,7 @@ const OrderForm = () => {
                                placeholder="mm/dd/yy"/>
                     </div>
 
-                    <div className="col-2">
+                    <div className="col-3">
                         <label htmlFor="quantity" className="form-label">Quantity</label>
                         <input onChange={handleQuantity} type="text" className="form-control" id="quantity"
                                placeholder="Enter quantity"/>

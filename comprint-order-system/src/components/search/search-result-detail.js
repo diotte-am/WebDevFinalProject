@@ -1,11 +1,25 @@
 import React from "react";
-import {Link, useLocation} from "react-router-dom";
+import {Link, useLocation, useNavigate} from "react-router-dom";
 import StatusConditional from "./status-conditional";
 import RenderLocationItem from "./render-location-item";
 
 
 const SearchResultDetail = () => {
     const {state} = useLocation();
+    const navigate = useNavigate();
+
+    const HandleEdit = () => {
+        navigate("/order/edit/", {state: state.result})
+    }
+
+    const HandleShipping = () => {
+        // give warning if there is already shipping data that it will be overwritten
+        alert("edit shipping for " + state.result.PONumber)
+    }
+    const HandleDelete = () => {
+        alert("Delete order # " + state.result.PONumber)
+    }
+
 
     return(
         // add modal here
@@ -25,6 +39,18 @@ const SearchResultDetail = () => {
             </h4>
 
             <br/>
+            <div className="btn-group float-end mt-4 me-4">
+                <button onClick={HandleEdit} className="btn btn-info btn-sm text-dark fw-bold" type="button">
+                    Edit
+                </button>
+                <button onClick={HandleShipping} className="btn btn-info btn-sm text-dark fw-bold" type="button">
+                    Set Shipping
+                </button>
+                <button onClick={HandleDelete} className="btn btn-info btn-sm text-dark fw-bold" type="button">
+                    Delete
+                </button>
+
+            </div>
             <div className="container alert-light pt-2 pb-2 rounded">
                 <span className="fw-bold">Status: </span><StatusConditional result={state.result}/>
                 <br/>
@@ -40,6 +66,8 @@ const SearchResultDetail = () => {
                 <div className="container">
                     <RenderLocationItem location={state.result.location}/>
                 </div>
+
+
             </div>
 
 

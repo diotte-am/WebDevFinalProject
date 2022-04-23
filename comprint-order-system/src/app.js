@@ -11,6 +11,7 @@ import CreateOrder from "./components/create-order";
 import SearchResultDetail from "./components/search/search-result-detail";
 import ProfileEdit from "./components/profile/profile-edit";
 import OrderReceived from "./components/create-order/order-received";
+import OrderEdit from "./components/create-order/order-edit";
 
 function App() {
   return (
@@ -28,6 +29,8 @@ function App() {
                                element={<CreateOrder />} />
                         <Route path={"order/received"}
                                element={<OrderReceived />} />
+                        <Route path={"order/edit"}
+                               element={<OrderEdit />} />
                         <Route path={"search"}
                                element={<Search />} />
                         <Route path={"login"}

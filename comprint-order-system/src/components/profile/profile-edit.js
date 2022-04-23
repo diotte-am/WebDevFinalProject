@@ -6,6 +6,7 @@ const ProfileEdit = () => {
 
     return (
         <>
+
             <div className="bg-black d-grid fw-bold">
                 <Link to={"../profile"}>
                     <i className="fa-solid fa-arrow-left-long text-white float-start ps-3 pt-2"></i>
@@ -55,7 +56,7 @@ const ProfileEdit = () => {
                 <div className="row d-flex ps-3 pe-3">
                     <div className=" col-4">
                         <label htmlFor="dateOfHire" className="form-label mt-2">Date of Hire</label>
-                        <input  type="text" className="form-control" id="dateOfHire"
+                        <input  type="date" className="form-control" id="dateOfHire"
                                 placeholder={state.user.dateofhire}/>
                     </div>
                     <div className=" col-4">
@@ -83,12 +84,12 @@ const ProfileEdit = () => {
                             <label className="form-check-label" htmlFor="department">
                                 Department
                             </label>
-                            <select  className="form-select" id="department" aria-label="department">
-                                <option selected={state.user.department === "ADMINISTRATOR"} value="admin">Administrator</option>
-                                <option selected={state.user.department === "ART"} value="art">Art Department</option>
-                                <option selected={state.user.department === "PRODUCTION"} value="production">Production</option>
-                                <option selected={state.user.department === "WAREHOUSE"} value="warehouse">Warehouse</option>
-                                <option selected={state.user.department === "SHIPPING"} value="shipping">Shipping</option>
+                            <select defaultValue={state.user.department} className="form-select" id="department" aria-label="department">
+                                <option value="ADMINISTRATOR">Administrator</option>
+                                <option value="ART" >Art Department</option>
+                                <option value="PRODUCTION">Production</option>
+                                <option value="WAREHOUSE">Warehouse</option>
+                                <option value="SHIPPING">Shipping</option>
                             </select>
                             <br/>
                             <hr/>
