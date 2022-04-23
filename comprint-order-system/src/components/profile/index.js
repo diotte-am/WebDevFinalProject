@@ -3,6 +3,7 @@ import {Link} from "react-router-dom";
 import UserDetails from "./user-details";
 
 const Profile = () => {
+
     return(
         <>
             <div className="bg-black d-grid fw-bold">
@@ -18,6 +19,7 @@ const Profile = () => {
             <h4 className="alert-warning text-dark fw-bold p-2">
                 Profile
             </h4>
+
             <UserDetails />
 
         </>

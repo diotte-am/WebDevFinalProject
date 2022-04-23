@@ -9,6 +9,8 @@ import Profile from "./components/profile"
 import Detail from "./components/detail";
 import CreateOrder from "./components/create-order";
 import SearchResultDetail from "./components/search/search-result-detail";
+import ProfileEdit from "./components/profile/profile-edit";
+import OrderReceived from "./components/create-order/order-received";
 
 function App() {
   return (
@@ -24,12 +26,19 @@ function App() {
                                element={<Home />} />
                         <Route path={"order"}
                                element={<CreateOrder />} />
+                        <Route path={"order/received"}
+                               element={<OrderReceived />} />
                         <Route path={"search"}
                                element={<Search />} />
                         <Route path={"login"}
                                element={<Login />} />
                         <Route path={"profile"}
-                               element={<Profile />} />
+                               element={<Profile />}/>
+                            <Route path={"profile/edit"}
+                                   element={<ProfileEdit />} />
+
+
+
                         <Route path={"detail"}
                                element={<Detail/>} />
                         <Route path={"search/detail"}

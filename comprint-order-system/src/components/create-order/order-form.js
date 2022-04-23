@@ -1,8 +1,10 @@
 import React from "react";
 import {useState} from "react";
 import PrintLocations from "./print-locations"
+import {useNavigate} from "react-router-dom";
 
 const OrderForm = () => {
+    const navigate = useNavigate()
 
     const[printLocations, setPrintLocations] = useState([
     ]);
@@ -74,6 +76,7 @@ const OrderForm = () => {
         orderForm.location = printLocations;
         setOrderForm(orderForm)
         console.log(orderForm)
+        navigate("/order/received", {state: {orderForm}})
     }
 
 
@@ -173,7 +176,7 @@ const OrderForm = () => {
                     </div>
 
                     <div className="d-block align-items-center">
-                        <button onClick={() => {addLocation()}} className="m-3 btn btn-secondary btn-sm">
+                        <button onClick={() => {addLocation()}} className="m-3 btn btn-secondary btn-sm fw-bold">
                             Add Location
                         </button>
                     </div>
@@ -183,13 +186,13 @@ const OrderForm = () => {
                 </div>
                 <hr/>
 
-
+                <div className="d-block align-items-center">
+                    <button onClick={() => {handleSumbit()}} className="m-3 btn btn-secondary fw-bold">
+                        Submit
+                    </button>
 
             </div>
-            <div className="d-block align-items-center">
-                <button onClick={() => {handleSumbit()}} className="m-3 btn btn-secondary btn-sm">
-                    Submit
-                </button>
+
             </div>
 
         </>

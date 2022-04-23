@@ -3,7 +3,6 @@ import React from "react";
 const RenderLocationItem = (po) => {
     return (
         <>
-            <br/>
             {po.location.fullFront ? "Full Front: " : "" }
             {po.location.fullFront && po.location.fullFront.flashes} {po.location.fullFront ? "flash(es), " : "" }
             {po.location.fullFront && po.location.fullFront.spots} {po.location.fullFront ? "color(s)" : "" }
