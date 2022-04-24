@@ -2,7 +2,7 @@ import React from "react";
 import {useState} from "react";
 import PrintLocations from "./print-locations"
 import {useNavigate} from "react-router-dom";
-import pos from "../data/pos.json"
+
 
 const OrderForm = () => {
     const navigate = useNavigate()
