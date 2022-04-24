@@ -1,48 +1,33 @@
 [
-    { "PONumber": "12356C-12",
-        "status" : "RECEIVED",
-        "dateAdded" : "4/16/22",
-        "lastModified" : {
-            "date": "4/17/22",
-            "by": "adiotte"
-        },
-        "client" : "Dana L.",
-        "dueDate" : "5/6/22",
-        "quantity" : "500",
-        "location" : {
-            "fullFront": {
-                "flashes": 1,
-                "spots" : 2
-            },
-            "rightSleeve": {
-                "flashes": 2,
-                "spots" : 6
-            }
-        },
-        "garmentTypes" : ["Gildan 18500 (royal)", "Gildan 2000 (royal)"]
+    {"orderForm":
+    {"status":"RECEIVED",
+        "PONumber":"12345",
+        "client":"Dana L",
+        "dueDate":"2022-04-26",
+        "quantity":"500",
+        "address":"154 Walnut St",
+        "state":"MA",
+        "zip":"02145",
+        "location":[
+            {"location":"Full Front","flashes":"1","colors":"1"},
+            {"location":"Full Back","flashes":"2","colors":"2"}
+        ],
+        "dateAdded":"2022-3-24"}
     },
-
-    { "PONumber": "WILMINGTONBLD2022",
-        "status" : "PROOFED",
-        "dateAdded" : "4/1/22",
-        "lastModified" : {
-            "date": "4/17/22",
-            "by": "adiotte"
-        },
-        "client" : "Rob T.",
-        "dueDate" : "6/6/22",
-        "quantity" : "2000",
-        "location" : {
-            "leftChest": {
-                "flashes": 1,
-                "spots" : 2
-            },
-            "fullBack": {
-                "flashes": 2,
-                "spots" : 7
-            }
-        },
-        "garmentTypes" : ["Gildan 18500 (black)", "Next Level 3600 (safety green)"]
+    {"orderForm":
+    {"status":"RECEIVED",
+        "PONumber":"4358",
+        "client":"Rob T.",
+        "dueDate":"2022-04-29",
+        "quantity":"750",
+        "address":"1844 Commonwealth Ave",
+        "state":"MA",
+        "zip":"02466",
+        "location":[
+            {"location":"Left Chest",
+                "flashes":"2",
+                "colors":"4"}
+        ],
+        "dateAdded":"2022-3-24"}
     }
-
 ]

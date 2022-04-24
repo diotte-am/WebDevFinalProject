@@ -14,10 +14,10 @@ const SearchResultDetail = () => {
 
     const HandleShipping = () => {
         // give warning if there is already shipping data that it will be overwritten
-        alert("edit shipping for " + state.result.PONumber)
+        alert("edit shipping for " + state.result.orderForm.PONumber)
     }
     const HandleDelete = () => {
-        alert("Delete order # " + state.result.PONumber)
+        alert("Delete order # " + state.result.orderForm.PONumber)
     }
 
 
@@ -35,7 +35,7 @@ const SearchResultDetail = () => {
 
             </div>
             <h4 className="alert-info text-dark fw-bold p-2">
-                PO number: {state.result.PONumber}
+                PO number: {state.result.orderForm.PONumber}
             </h4>
 
             <br/>
@@ -54,17 +54,18 @@ const SearchResultDetail = () => {
             <div className="container alert-light pt-2 pb-2 rounded">
                 <span className="fw-bold">Status: </span><StatusConditional result={state.result}/>
                 <br/>
-                <span className="fw-bold">Due Date: </span>{state.result.dueDate}
+                <span className="fw-bold">Due Date: </span>{state.result.orderForm.dueDate}
                 <br/>
-                <span className="fw-bold">Client: </span>{state.result.client}
+                <span className="fw-bold">Client: </span>{state.result.orderForm.client}
                 <br/>
-                <span className="fw-bold">Date Added: </span>{state.result.dateAdded}
+                <span className="fw-bold">Date Added: </span>{state.result.orderForm.dateAdded}
                 <br/>
-                <span className="fw-bold">Quantity: </span>{state.result.quantity}
+                <span className="fw-bold">Quantity: </span>{state.result.orderForm.quantity}
                 <br/>
                 <span className="fw-bold">Locations:</span>
                 <div className="container">
-                    <RenderLocationItem location={state.result.location}/>
+
+                    <RenderLocationItem location={state.result.orderForm.location}/>
                 </div>
 
 

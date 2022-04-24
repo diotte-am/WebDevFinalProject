@@ -2,23 +2,23 @@ import React from "react";
 import {useState} from "react";
 import PrintLocations from "./print-locations"
 import {useNavigate} from "react-router-dom";
+import pos from "../data/pos.json"
 
 const OrderForm = () => {
     const navigate = useNavigate()
-
-    const[printLocations, setPrintLocations] = useState([
-    ]);
-
+    const[allPOS, setAllPOS] = useState([])
     const[orderForm, setOrderForm] = useState([]);
-
+    const[printLocations, setPrintLocations] = useState([]);
 
     const addLocation = () => {
+
                 if (printLocations.location !== undefined){
                     const newPrintLocation = {
                         location: printLocations.location,
                         flashes: printLocations.flashes,
                         colors: printLocations.colors
                     };
+
 
                     const newPrintLocations = [newPrintLocation, ...printLocations];
                     setPrintLocations(newPrintLocations)
@@ -44,8 +44,8 @@ const OrderForm = () => {
     }
 
     const handlePONumber = (e) => {
-        orderForm.PONumber = e.target.value;
-
+        const newOrderform = {...orderForm, PONumber : e.target.value}
+        setOrderForm(newOrderform)
     }
 
     const handleClient = (e) => {
@@ -74,16 +74,21 @@ const OrderForm = () => {
 
     const handleSumbit = () => {
         orderForm.location = printLocations;
-        setOrderForm(orderForm)
         const date = new Date()
         orderForm.dateAdded = date.getFullYear() + "-" + date.getMonth() + "-" + date.getDate()
         orderForm.status = "RECEIVED"
-        navigate("/order/received", {state: {orderForm}})
+        setOrderForm(orderForm)
+        const allNewPOS = [...allPOS, {orderForm}]
+        setAllPOS(allNewPOS)
+        console.log(JSON.stringify(allPOS))
+    navigate("/order/received", {state: {orderForm}})
+
     }
 
 
     return(
         <>
+
             <div className="container col-11 bg-light mt-4 d-grid rounded">
                 <div className="row p-4">
                     <div className=" col-3">
@@ -161,7 +166,7 @@ const OrderForm = () => {
                         </select>
                         </div>
                         <div className="col-2">
-                            # of Colors: <select onChange={setColorHandler} className="form-select" id="COLOR" aria-label="COLORS">
+                            # of Colors: <select onChange={setColorHandler} className="form-select" id="COLOR" aria-label="COLORS" value={printLocations.flashes }>
                             <option value="tbd">Choose</option>
                             <option value="1">1 Spot</option>
                             <option value="2">2 Spots</option>

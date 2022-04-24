@@ -66,14 +66,13 @@ const ProfileEdit = () => {
                     <div className=" col-4">
                         <label htmlFor="fullTime" className="form-label mt-2">Full Time?</label>
                     <div className="form-check">
-                        <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked={state.user.fullTime}/>
+                        <input onClick={alert} className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" defaultChecked={state.user.fullTime}/>
                             <label className="form-check-label" htmlFor="flexRadioDefault1">
                                 Yes
                             </label>
                     </div>
                     <div className="form-check">
-                        <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked={!state.user.fullTime}
-                                />
+                        <input onClick={alert} className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" defaultChecked={!state.user.fullTime} />
                             <label className="form-check-label" htmlFor="flexRadioDefault2">
                                 No
                             </label>
@@ -84,7 +83,7 @@ const ProfileEdit = () => {
                             <label className="form-check-label" htmlFor="department">
                                 Department
                             </label>
-                            <select defaultValue={state.user.department} className="form-select" id="department" aria-label="department">
+                            <select value={state.user.department} className="form-select" id="department" aria-label="department" onChange={alert}>
                                 <option value="ADMINISTRATOR">Administrator</option>
                                 <option value="ART" >Art Department</option>
                                 <option value="PRODUCTION">Production</option>
