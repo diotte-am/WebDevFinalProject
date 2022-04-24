@@ -6,7 +6,7 @@ import {useNavigate} from "react-router-dom";
 
 const OrderForm = () => {
     const navigate = useNavigate()
-    const[allPOS, setAllPOS] = useState([])
+
     const[orderForm, setOrderForm] = useState([]);
     const[printLocations, setPrintLocations] = useState([]);
 
@@ -78,11 +78,7 @@ const OrderForm = () => {
         orderForm.dateAdded = date.getFullYear() + "-" + date.getMonth() + "-" + date.getDate()
         orderForm.status = "RECEIVED"
         setOrderForm(orderForm)
-        const allNewPOS = [...allPOS, {orderForm}]
-        setAllPOS(allNewPOS)
-        console.log(JSON.stringify(allPOS))
-    navigate("/order/received", {state: {orderForm}})
-
+        navigate("/order/received", {state: {orderForm}})
     }
 
 

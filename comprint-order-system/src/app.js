@@ -13,41 +13,44 @@ import ProfileEdit from "./components/profile/profile-edit";
 import OrderReceived from "./components/create-order/order-received";
 import OrderEdit from "./components/create-order/order-edit";
 
+
 function App() {
   return (
     <div className="container">
 
         <BrowserRouter>
             <div className="container">
-                <Routes>
-                    <Route path="/">
-                        <Route index
-                               element={<Home />} />
-                        <Route path="home"
-                               element={<Home />} />
-                        <Route path={"order"}
-                               element={<CreateOrder />} />
-                        <Route path={"order/received"}
-                               element={<OrderReceived />} />
-                        <Route path={"order/edit"}
-                               element={<OrderEdit />} />
-                        <Route path={"search"}
-                               element={<Search />} />
-                        <Route path={"login"}
-                               element={<Login />} />
-                        <Route path={"profile"}
-                               element={<Profile />}/>
+
+                    <Routes>
+                        <Route path="/">
+                            <Route index
+                                   element={<Home />} />
+                            <Route path="home"
+                                   element={<Home />} />
+                            <Route path={"order"}
+                                   element={<CreateOrder />} />
+                            <Route path={"order/received"}
+                                   element={<OrderReceived />} />
+                            <Route path={"order/edit"}
+                                   element={<OrderEdit />} />
+                            <Route path={"search"}
+                                   element={<Search />} />
+                            <Route path={"login"}
+                                   element={<Login />} />
+                            <Route path={"profile"}
+                                   element={<Profile />}/>
                             <Route path={"profile/edit"}
                                    element={<ProfileEdit />} />
 
 
 
-                        <Route path={"detail"}
-                               element={<Detail/>} />
-                        <Route path={"search/detail"}
-                               element={<SearchResultDetail/>} />
-                    </Route>
-                </Routes>
+                            <Route path={"detail"}
+                                   element={<Detail/>} />
+                            <Route path={"search/detail"}
+                                   element={<SearchResultDetail/>} />
+                        </Route>
+                    </Routes>
+
             </div>
         </BrowserRouter>
     </div>

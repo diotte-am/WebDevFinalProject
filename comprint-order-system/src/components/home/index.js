@@ -1,11 +1,15 @@
 import React from "react";
 import {Link} from "react-router-dom";
 import Recents from "./recents";
+import {useSelector} from "react-redux";
+
 
 const Home = () => {
-    const loggedIn = false;
+    const loggedIn = useSelector(state => state.isLogged)
+
     return(
         <>
+
             <Link to="login">
                 <button type="button" className="d-block float-end btn btn-outline-dark fw-bold">
                     {loggedIn ? 'Log Out' : 'Log In' }
@@ -34,7 +38,12 @@ const Home = () => {
                 <Link to="detail" className="d-grid col-5 container align-content-center">
                     <button type="button" className="btn btn-dark m-2 fw-bold">Get Shipping Rates</button>
                 </Link>
+
             <Recents />
+
+
+
+
 
         </>
     )};

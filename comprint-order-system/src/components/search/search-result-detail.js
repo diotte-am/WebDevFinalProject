@@ -65,7 +65,7 @@ const SearchResultDetail = () => {
                 <span className="fw-bold">Locations:</span>
                 <div className="container">
 
-                    <RenderLocationItem location={state.result.orderForm.location}/>
+                    <RenderLocationItem location={state.result.orderForm}/>
                 </div>
 
 
