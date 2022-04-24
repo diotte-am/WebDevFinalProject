@@ -1,6 +1,8 @@
 import React from "react";
 import ProtectedUserDetails from "./protected-user-details";
 import {useNavigate} from "react-router-dom";
+import {useSelector} from "react-redux";
+import nav from "../nav";
 
 const UserDetails = ({
                          user = {
@@ -19,7 +21,7 @@ const UserDetails = ({
                      }
 ) => {
     const navigate = useNavigate()
-    let loggedIn = true;
+    const loggedIn = useSelector(state => state.isLogged)
     let details;
     if (loggedIn){
         details = <ProtectedUserDetails user={user}/>
@@ -28,7 +30,12 @@ const UserDetails = ({
     }
 
     const handleEdit = () => {
-        navigate("/profile/edit", {state: {user}})
+        if(loggedIn){
+            navigate("/profile/edit", {state: {user}})
+        } else {
+            navigate("/login")
+        }
+
 
     }
     return(

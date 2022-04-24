@@ -1,20 +1,34 @@
 import React from "react";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import Recents from "./recents";
 import {useSelector} from "react-redux";
 
 
 const Home = () => {
-    const loggedIn = useSelector(state => state.isLogged)
+    const loggedIn = useSelector(state => state.isLogged.loggedIn)
+    const username = useSelector(state => state.isLogged.username)
+    const navigate = useNavigate();
+
+    const handleLogin = () => {
+        if(loggedIn){
+            return(
+                alert("logout!")
+            )
+        } else {
+            navigate("login")
+
+        }
+
+    }
 
     return(
         <>
 
-            <Link to="login">
-                <button type="button" className="d-block float-end btn btn-outline-dark fw-bold">
-                    {loggedIn ? 'Log Out' : 'Log In' }
+
+                <button onClick={handleLogin} type="button" className="d-block float-end btn btn-outline-dark fw-bold">
+                    {loggedIn ? username + ' (Log Out)' : 'Log In' }
                 </button>
-            </Link>
+
                 <img className="d-block mx-auto mt-4 mb-4" src='../images/comprint-logo.png' alt="comprintLogo"/>
                 <h2 className="alert-dark text-center fw-bold pt-1 pb-2 mb-3">
                     Comprint Order System
@@ -31,7 +45,7 @@ const Home = () => {
                     <button type="button" className="btn btn-secondary m-2 text-dark fw-bold">Create New Order</button>
                 </Link>
 
-                <Link to="profile" className="d-grid col-5 container align-content-center">
+                <Link to={loggedIn ? "profile" : "login"} className="d-grid col-5 container align-content-center">
                     <button type="button" className="btn btn-warning m-2 text-dark fw-bold">Profile</button>
                 </Link>
 

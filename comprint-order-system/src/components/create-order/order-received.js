@@ -29,7 +29,7 @@ const OrderReceived = () => {
                 <div className="container alert-light pt-2 pb-2 rounded">
                     <h2 className="fw-bold">Purchase Order {state.orderForm.PONumber} Received!</h2>
                     <h5 className="fw-bold"> Order Summary:</h5>
-                    <span className="fw-bold">Status: </span><StatusConditional result={state.orderForm}/>
+                    <span className="fw-bold">Status: </span><StatusConditional result={state}/>
                     <br/>
                     <span className="fw-bold">Due Date: </span>{state.orderForm.dueDate}
                     <br/>

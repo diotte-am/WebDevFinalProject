@@ -79,6 +79,7 @@ const OrderForm = () => {
         orderForm.status = "RECEIVED"
         setOrderForm(orderForm)
         navigate("/order/received", {state: {orderForm}})
+
     }
 
 
@@ -190,7 +191,7 @@ const OrderForm = () => {
                 <hr/>
 
                 <div className="d-block align-items-center">
-                    <button onClick={() => {handleSumbit()}} className="m-3 btn btn-secondary fw-bold">
+                    <button onClick={handleSumbit} className="m-3 btn btn-secondary fw-bold">
                         Submit
                     </button>
 
