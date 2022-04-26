@@ -4,22 +4,7 @@ import {useNavigate} from "react-router-dom";
 import {useSelector} from "react-redux";
 
 
-const UserDetails = ({
-                         user = {
-                             "_id": "86759303",
-                             "username": "adiotte",
-                             "name": "Amare Diotte",
-                             "password": "secretpassword",
-                             "department": "ART",
-                             "phonenumber" : "(999)999-9999",
-                             "extension": "11",
-                             "email": "amare@comprint.com",
-                             "dateofhire": "05/15/2012",
-                             "dateofbirth": "08/16/1986",
-                             "fullTime": true
-
-                         }
-                     }
+const UserDetails = ({user = {user}}
 ) => {
     const navigate = useNavigate()
     const loggedIn = useSelector(state => state.isLogged)
@@ -41,6 +26,7 @@ const UserDetails = ({
     }
     return(
         <div className="container bg-light mt-3 p-3 d-grid rounded">
+            {console.log(user)}
             <h5 className="fw-bold">{user.name}</h5>
             <div className="container">
 

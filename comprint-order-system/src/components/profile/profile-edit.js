@@ -50,35 +50,35 @@ const ProfileEdit = () => {
                                 placeholder="*******"/>
                     </div>
                     <hr/>
-<div className="text-dark alert-warning"> Fields below here will be disabled for all users except the admin</div>
-
                 </div>
-                <div className="row d-flex ps-3 pe-3">
-                    <div className=" col-4">
-                        <label htmlFor="dateOfHire" className="form-label mt-2">Date of Hire</label>
-                        <input  type="date" className="form-control" id="dateOfHire"
-                                placeholder={state.user.dateofhire}/>
-                    </div>
-                    <div className=" col-4">
-                        <label htmlFor="dateOfBirth" className="form-label mt-2">Date of Birth</label>
-                        <input  type="date" className="form-control" id="birthDate"/>
-                    </div>
-                    <div className=" col-4">
-                        <label htmlFor="fullTime" className="form-label mt-2">Full Time?</label>
-                    <div className="form-check">
-                        <input onClick={alert} className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" defaultChecked={state.user.fullTime}/>
-                            <label className="form-check-label" htmlFor="flexRadioDefault1">
-                                Yes
-                            </label>
-                    </div>
-                    <div className="form-check">
-                        <input onClick={alert} className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" defaultChecked={!state.user.fullTime} />
-                            <label className="form-check-label" htmlFor="flexRadioDefault2">
-                                No
-                            </label>
-                    </div>
+                {state.user.department === "ADMIN" ?
 
-                    </div>
+                    <div className="row d-flex ps-3 pe-3">
+                        <div className=" col-4">
+                            <label htmlFor="dateOfHire" className="form-label mt-2">Date of Hire</label>
+                            <input  type="date" className="form-control" id="dateOfHire"
+                                    placeholder={state.user.dateofhire}/>
+                        </div>
+                        <div className=" col-4">
+                            <label htmlFor="dateOfBirth" className="form-label mt-2">Date of Birth</label>
+                            <input  type="date" className="form-control" id="birthDate"/>
+                        </div>
+                        <div className=" col-4">
+                            <label htmlFor="fullTime" className="form-label mt-2">Full Time?</label>
+                            <div className="form-check">
+                                <input onClick={alert} className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" defaultChecked={state.user.fullTime}/>
+                                <label className="form-check-label" htmlFor="flexRadioDefault1">
+                                    Yes
+                                </label>
+                            </div>
+                            <div className="form-check">
+                                <input onClick={alert} className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" defaultChecked={!state.user.fullTime} />
+                                <label className="form-check-label" htmlFor="flexRadioDefault2">
+                                    No
+                                </label>
+                            </div>
+
+                        </div>
                         <div className=" col-4 pb-2">
                             <label className="form-check-label" htmlFor="department">
                                 Department
@@ -98,7 +98,11 @@ const ProfileEdit = () => {
 
                         </div>
 
-                </div>
+                    </div> :
+                    ""
+
+                }
+
 
             </div>
 

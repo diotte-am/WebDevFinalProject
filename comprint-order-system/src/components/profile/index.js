@@ -59,7 +59,7 @@ const Profile = () => {
                 </h4>
             }
 
-            {isLogged.loggedIn && <UserDetails/>}
+            {isLogged.loggedIn && <UserDetails user={profiles.find(p => p.username === isLogged.username)}/>}
             {!isLogged.loggedIn &&
                 <button onClick={handleLogin} type="button" className="d-block float-end btn btn-outline-dark fw-bold">
                     Login
@@ -71,7 +71,7 @@ const Profile = () => {
 
 
                 <div className="container ">
-                    <label htmlFor="searchProfiles" className="form-label m-2 row fw-bold">Search profiles:</label>
+                    <label htmlFor="searchProfiles" className="form-label m-2 row fw-bold">Search profiles by username:</label>
                     <input onChange={handleUsername} type="text" className="form-control "  id="searchProfiles"
                             placeholder="Enter username"/>
                     <button onClick={handleSearch} className="btn btn-warning text-dark fw-bold m-3"> Search</button>
