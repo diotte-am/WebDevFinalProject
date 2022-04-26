@@ -16,9 +16,7 @@ const Home = () => {
             )
         } else {
             navigate("login")
-
         }
-
     }
 
     return(
@@ -45,7 +43,7 @@ const Home = () => {
                     <button type="button" className="btn btn-secondary m-2 text-dark fw-bold">Create New Order</button>
                 </Link>
 
-                <Link to={loggedIn ? "profile" : "login"} className="d-grid col-5 container align-content-center">
+                <Link to={"profile"} className="d-grid col-5 container align-content-center">
                     <button type="button" className="btn btn-warning m-2 text-dark fw-bold">Profile</button>
                 </Link>
 

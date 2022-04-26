@@ -1,8 +1,39 @@
 import React from "react";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import UserDetails from "./user-details";
+import {useSelector} from "react-redux";
+import {useState} from "react";
+import ProfileResults from "./profile-results";
 
 const Profile = () => {
+    const isLogged = useSelector(state => state.isLogged);
+    const profiles = useSelector(state => state.users);
+    const navigate = useNavigate();
+    const [usernameSearch, setUsernameSearch] = useState("")
+    const [profileSearch, setProfileSearch] = useState([]);
+
+
+    const handleLogin = () => {
+        if(isLogged.loggedIn){
+            return(
+                alert("logout!")
+            )
+        } else {
+            navigate("/login")
+        }
+    }
+
+    const handleUsername = (e) => {
+        const username = e.target.value;
+        setUsernameSearch(username)
+
+    }
+
+    const handleSearch = () => {
+        const profileResult = profiles.filter(profile => profile.username == usernameSearch);
+        setProfileSearch(profileResult)
+    }
+
 
     return(
         <>
@@ -16,11 +47,48 @@ const Profile = () => {
                 </Link>
 
             </div>
-            <h4 className="alert-warning text-dark fw-bold p-2">
-                Profile
-            </h4>
 
-            <UserDetails />
+            {isLogged.loggedIn &&
+                <h4 className="alert-warning text-dark fw-bold p-2">
+                Profile
+                </h4>
+            }
+            {!isLogged.loggedIn &&
+                <h4 className="alert-warning text-dark fw-bold p-2">
+                    Search Profiles
+                </h4>
+            }
+
+            {isLogged.loggedIn && <UserDetails/>}
+            {!isLogged.loggedIn &&
+                <button onClick={handleLogin} type="button" className="d-block float-end btn btn-outline-dark fw-bold">
+                    Login
+                </button>
+            }
+
+            <hr />
+
+
+
+                <div className="container ">
+                    <label htmlFor="searchProfiles" className="form-label m-2 row fw-bold">Search profiles:</label>
+                    <input onChange={handleUsername} type="text" className="form-control "  id="searchProfiles"
+                            placeholder="Enter username"/>
+                    <button onClick={handleSearch} className="btn btn-warning text-dark fw-bold m-3"> Search</button>
+                    <div className="container alert-light p-2">
+                        <ProfileResults profile = {profileSearch} />
+                    </div>
+
+
+
+                </div>
+
+
+
+
+
+
+
 
         </>
 
