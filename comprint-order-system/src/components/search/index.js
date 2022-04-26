@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {Link} from "react-router-dom";
 import SearchResultList from "./search-result-list"
 import {useSelector} from "react-redux";
@@ -6,6 +6,33 @@ import {useSelector} from "react-redux";
 
 const Search = () => {
     const orders = useSelector(state => state.POS);
+    const [search, setSearch] = useState([...orders])
+
+
+    const handleStatus = (e) => {
+        const value = e.target.value;
+        switch(value){
+            case "ALL":
+                setSearch(orders.filter(po => po.status === "ALL"))
+                break;
+            case "RECEIVED":
+                setSearch(orders.filter(po => po.status === "RECEIVED"))
+                break;
+            case "PROOFED":
+                setSearch(orders.filter(po => po.status === "PROOFED"))
+                break;
+            case "APPROVED":
+                setSearch(orders.filter(po => po.status === "APPROVED"))
+                break;
+            case "PRINTED":
+                setSearch(orders.filter(po => po.status === "PRINTED"))
+                break;
+            default:
+                setSearch(orders)
+        }
+
+    }
+
     return(
         <>
             <div className="bg-black d-grid fw-bold">
@@ -56,8 +83,8 @@ const Search = () => {
                 </div>
 
                 <div className="input-group mt-4">
-                    <select className="form-select" id="searchParametersAll" aria-label="Search by Status">
-                        <option value="ALL" defaultValue>All Orders</option>
+                    <select onChange={handleStatus} defaultValue={"ALL"} className="form-select" id="searchParametersAll" aria-label="Search by Status">
+                        <option value="ALL">All Orders</option>
                         <option value="RECEIVED">RECEIVED</option>
                         <option value="PROOFED">PROOFED</option>
                         <option value="APPROVED">APPROVED</option>
@@ -67,7 +94,7 @@ const Search = () => {
                 </div>
             </div>
 
-            <SearchResultList pos={orders}/>
+            <SearchResultList pos={search}/>
         </>
     )
 

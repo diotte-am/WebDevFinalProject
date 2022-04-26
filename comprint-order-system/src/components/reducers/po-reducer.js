@@ -1,4 +1,4 @@
-const POS =[ {"status":"RECEIVED",
+const POS =[ {"status":"PROOFED",
     "PONumber":"12345",
     "client":"Dana L",
     "dueDate":"2022-04-26",
