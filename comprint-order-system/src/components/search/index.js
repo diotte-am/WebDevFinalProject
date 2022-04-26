@@ -2,22 +2,21 @@ import React, {useState} from "react";
 import {Link, useNavigate} from "react-router-dom";
 import SearchResultList from "./search-result-list"
 import {useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
 
 
 const Search = () => {
     const orders = useSelector(state => state.POS);
     const [search, setSearch] = useState([...orders])
-
+    const dispatch = useDispatch();
     const loggedIn = useSelector(state => state.isLogged.loggedIn)
     const username = useSelector(state => state.isLogged.username)
     const navigate = useNavigate();
     const handleLogin = () => {
-        if(loggedIn){
-            return(
-                alert("logout!")
-            )
-        } else {
+        if (!loggedIn) {
             navigate("login")
+        } else {
+            dispatch({type: "logOut"})
         }
     }
 

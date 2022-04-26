@@ -2,6 +2,10 @@ import React from "react";
 import {Link} from "react-router-dom";
 
 const Login = () => {
+
+    const handleSubmit = () => {
+
+    }
     return (
         <>
             <div className="bg-black d-grid fw-bold">
@@ -32,7 +36,7 @@ const Login = () => {
                     </div>
 
                 <div className=" col-3 pb-3">
-                   <button className="float-end btn-secondary btn">
+                   <button onClick={handleSubmit} className="float-end btn-secondary btn">
                         Submit
                     </button>
                 </div>

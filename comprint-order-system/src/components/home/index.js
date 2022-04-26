@@ -1,18 +1,21 @@
 import React from "react";
 import {Link, useNavigate} from "react-router-dom";
 import Recents from "./recents";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 
 
 const Home = () => {
     const loggedIn = useSelector(state => state.isLogged.loggedIn)
     const username = useSelector(state => state.isLogged.username)
     const navigate = useNavigate();
+    const dispatch = useDispatch();
+
 
     const handleLogin = () => {
         if(loggedIn){
+            dispatch({type: "logOut"})
             return(
-                alert("logout!")
+                navigate("/")
             )
         } else {
             navigate("login")
@@ -21,8 +24,6 @@ const Home = () => {
 
     return(
         <>
-
-
                 <button onClick={handleLogin} type="button" className="d-block float-end btn btn-outline-dark fw-bold">
                     {loggedIn ? username + ' (Log Out)' : 'Log In' }
                 </button>
