@@ -16,7 +16,7 @@ const Login = () => {
     }
 
     const handlePassword = (e) => {
-        loginForm.password = e.target.value;
+        loginForm.password = e.target.value.trim();
         setLoginForm(loginForm)
     }
 
@@ -25,11 +25,15 @@ const Login = () => {
             alert("Login failed! Please provide valid username and password")
         } else {
             const profileResult = profiles.find(profile => profile.username === loginForm.userName);
-            console.log("Profile Result: " + profileResult.username + " " + profileResult.password)
-            console.log("Login Form: " + loginForm.userName + " " + loginForm.password )
-            if(profileResult.password == loginForm.password){
-                dispatch({type: "logIn", username: profileResult.username})
-                navigate("/")
+            if(profileResult === undefined){
+                alert("This username does not exist!")
+            }else{
+                if(profileResult.password === loginForm.password){
+                    dispatch({type: "logIn", username: profileResult.username})
+                    navigate("/")
+                } else {
+                    alert(JSON.stringify(profileResult.password))
+                }
             }
         }
     }

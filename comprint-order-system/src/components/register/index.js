@@ -17,7 +17,8 @@ const Register = () => {
         setRegisterForm(registerForm)
     }
     const handlePassword = (e) => {
-        registerForm.password = e.target.value;
+        let password = e.target.value;
+        registerForm.password = password.trim();
         setRegisterForm(registerForm)
     }
     const handleDepartment = (e) => {
@@ -46,8 +47,8 @@ const Register = () => {
         setRegisterForm(registerForm)
     }
     const handleSubmit = () => {
-
         dispatch({type: "addUser", payload: registerForm})
+        navigate("/login")
     }
 
     return (
