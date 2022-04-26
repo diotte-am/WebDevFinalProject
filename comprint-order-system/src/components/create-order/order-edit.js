@@ -19,13 +19,13 @@ const OrderEdit = () => {
 
     </div>
     <h4 className="alert-secondary text-dark fw-bold p-2">
-        Editing PO# {state.orderForm.PONumber}
+        Editing PO# {state.PONumber}
     </h4>
 
 
     <div className=" col-6">
         <label htmlFor="client" className="form-label mt-2">Client</label>
-        <input  type="text" className="form-control" id="client" placeholder={state.orderForm.client} checked/>
+        <input  type="text" className="form-control" id="client" placeholder={state.client} checked/>
     </div>
 
 

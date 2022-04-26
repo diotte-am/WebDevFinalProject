@@ -1,8 +1,11 @@
 import React from "react";
 import {Link} from "react-router-dom";
 import SearchResultList from "./search-result-list"
+import {useSelector} from "react-redux";
+
 
 const Search = () => {
+    const orders = useSelector(state => state.POS);
     return(
         <>
             <div className="bg-black d-grid fw-bold">
@@ -64,7 +67,7 @@ const Search = () => {
                 </div>
             </div>
 
-            <SearchResultList />
+            <SearchResultList pos={orders}/>
         </>
     )
 

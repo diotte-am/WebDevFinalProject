@@ -17,16 +17,16 @@ const SearchResult = ({result}) => {
                 </div>
 
                 <div className=" pt-2 pb-2">
-                    PO Number: {result.orderForm.PONumber}
+                    PO Number: {result.PONumber}
                     <br/>
                     Status: <StatusConditional result={result}/>
                     <br/>
-                    Due Date: {result.orderForm.dueDate}
+                    Due Date: {result.dueDate}
                     <br/>
                     Locations:
                     <div className="container">
 
-                        {result.orderForm.location.map((loc) => {
+                        {result.location.map((loc) => {
                             loc.key = loc.location
                             return(
                                 <div key={loc.location}>

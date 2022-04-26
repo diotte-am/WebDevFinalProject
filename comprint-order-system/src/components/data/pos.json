@@ -1,6 +1,7 @@
 [
-    {"orderForm":
-    {"status":"RECEIVED",
+
+    {   "_id": "283829",
+        "status":"RECEIVED",
         "PONumber":"12345",
         "client":"Dana L",
         "dueDate":"2022-04-26",
@@ -10,12 +11,13 @@
         "zip":"02145",
         "location":[
             {"location":"Full Front","flashes":"1","colors":"1"},
-            {"location":"Full Back","flashes":"2","colors":"2"}
+            {"location":"Full Back","flashes":"1","colors":"1"}
         ],
-        "dateAdded":"2022-3-24"}
-    },
-    {"orderForm":
-    {"status":"RECEIVED",
+        "dateAdded":"2022-3-24"},
+
+    {
+        "_id": "283342",
+        "status":"RECEIVED",
         "PONumber":"4358",
         "client":"Rob T.",
         "dueDate":"2022-04-29",
@@ -29,5 +31,5 @@
                 "colors":"4"}
         ],
         "dateAdded":"2022-3-24"}
-    }
+
 ]

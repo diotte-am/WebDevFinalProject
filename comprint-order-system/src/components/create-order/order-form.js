@@ -2,12 +2,14 @@ import React from "react";
 import {useState} from "react";
 import PrintLocations from "./print-locations"
 import {useNavigate} from "react-router-dom";
+import {useDispatch, useSelector} from "react-redux";
 
 
 const OrderForm = () => {
-    const navigate = useNavigate()
-
-    const[orderForm, setOrderForm] = useState([]);
+    const navigate = useNavigate();
+    const orders = useSelector(state => state.POS);
+    const dispatch = useDispatch();
+    const[orderForm, setOrderForm] = useState({});
     const[printLocations, setPrintLocations] = useState([]);
 
     const addLocation = () => {
@@ -77,14 +79,17 @@ const OrderForm = () => {
         const date = new Date()
         orderForm.dateAdded = date.getFullYear() + "-" + date.getMonth() + "-" + date.getDate()
         orderForm.status = "RECEIVED"
+        orderForm._id = new Date().getTime();
         setOrderForm(orderForm)
+        console.log(orderForm)
         navigate("/order/received", {state: {orderForm}})
-
+        dispatch({type: "addOrder", payload: {orderForm}})
     }
 
 
     return(
         <>
+            {console.log(orders)}
 
             <div className="container col-11 bg-light mt-4 d-grid rounded">
                 <div className="row p-4">
