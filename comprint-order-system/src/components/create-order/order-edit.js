@@ -1,6 +1,6 @@
 import React from "react";
 import {Link, useLocation, useNavigate} from "react-router-dom";
-import {Provider, useDispatch, useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 
 const OrderEdit = () => {
     const {state} = useLocation();

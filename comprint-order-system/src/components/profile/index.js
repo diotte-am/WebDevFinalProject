@@ -30,7 +30,7 @@ const Profile = () => {
     }
 
     const handleSearch = () => {
-        const profileResult = profiles.filter(profile => profile.username == usernameSearch);
+        const profileResult = profiles.filter(profile => profile.username === usernameSearch);
         setProfileSearch(profileResult)
     }
 
