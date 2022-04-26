@@ -23,7 +23,7 @@ const Recents = () => {
                                 <br/>
                                 <span className="fw-bold">Client: </span>{po.client}
                                 <br/>
-                                <span className="fw-bold">Date Added: </span>{po.dateAdded.toString()}
+                                <span className="fw-bold">Date Added: </span>{po.dateAdded}
                                 <br/>
                                 <span className="fw-bold">Quantity: </span>{po.quantity}
                                 <br/>

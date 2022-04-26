@@ -13,7 +13,7 @@ const Search = () => {
         const value = e.target.value;
         switch(value){
             case "ALL":
-                setSearch(orders.filter(po => po.status === "ALL"))
+                setSearch(orders)
                 break;
             case "RECEIVED":
                 setSearch(orders.filter(po => po.status === "RECEIVED"))

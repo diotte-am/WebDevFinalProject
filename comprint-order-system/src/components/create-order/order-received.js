@@ -22,7 +22,7 @@ const OrderReceived = () => {
 
                 </div>
                 <h4 className="alert-secondary text-dark fw-bold p-2">
-                    PO number: {state.orderForm.PONumber}
+                    PO number: {state.orderForm.PONumber} entered by {state.orderForm.addedBy}
                 </h4>
 
                 <br/>

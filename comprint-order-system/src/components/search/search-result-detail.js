@@ -61,9 +61,20 @@ const SearchResultDetail = () => {
                 <br/>
                 <span className="fw-bold">Client: </span>{state.result.client}
                 <br/>
+                <span className="fw-bold">Shipping Address: </span>{state.result.address}, {state.result.state} {state.result.zip}
+                <br/>
                 <span className="fw-bold">Date Added: </span>{state.result.dateAdded}
                 <br/>
+                <span className="fw-bold">Added By: </span>{state.result.addedBy}
+                <br/>
                 <span className="fw-bold">Quantity: </span>{state.result.quantity}
+                <br/>
+                {state.result.updatedBy ?  <span className="fw-bold">Last Updated: </span>
+                    : ""} {state.result.updateDate}
+
+                <br/>
+                {state.result.updatedBy ?  <span className="fw-bold">Updated by: </span>
+                    : ""} {state.result.updatedBy}
                 <br/>
                 <span className="fw-bold">Locations:</span>
                 <div className="container">

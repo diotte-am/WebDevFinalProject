@@ -7,7 +7,7 @@ import {useDispatch, useSelector} from "react-redux";
 
 const OrderForm = () => {
     const navigate = useNavigate();
-    const orders = useSelector(state => state.POS);
+    const user = useSelector(state => state.isLogged);
     const dispatch = useDispatch();
     const[orderForm, setOrderForm] = useState({});
     const[printLocations, setPrintLocations] = useState([]);
@@ -80,8 +80,8 @@ const OrderForm = () => {
         orderForm.dateAdded = date.getFullYear() + "-" + date.getMonth() + "-" + date.getDate()
         orderForm.status = "RECEIVED"
         orderForm._id = new Date().getTime();
+        orderForm.addedBy = user.username;
         setOrderForm(orderForm)
-        console.log(orderForm)
         navigate("/order/received", {state: {orderForm}})
         dispatch({type: "addOrder", payload: {orderForm}})
     }
@@ -89,7 +89,6 @@ const OrderForm = () => {
 
     return(
         <>
-            {console.log(orders)}
 
             <div className="container col-11 bg-light mt-4 d-grid rounded">
                 <div className="row p-4">

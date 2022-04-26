@@ -6,6 +6,7 @@ import {useSelector} from "react-redux";
 
 const UserDetails = ({
                          user = {
+                             "_id": "86759303",
                              "username": "adiotte",
                              "name": "Amare Diotte",
                              "password": "secretpassword",
