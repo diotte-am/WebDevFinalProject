@@ -2,7 +2,7 @@ import React from "react";
 import ProtectedUserDetails from "./protected-user-details";
 import {useNavigate} from "react-router-dom";
 import {useSelector} from "react-redux";
-import nav from "../nav";
+
 
 const UserDetails = ({
                          user = {

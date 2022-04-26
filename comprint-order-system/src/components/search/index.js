@@ -90,7 +90,6 @@ const Search = () => {
                         <option value="APPROVED">APPROVED</option>
                         <option value="PRINTED">PRINTED</option>
                     </select>
-                    <button className="btn btn-info  fw-bold text-dark" type="button">View</button>
                 </div>
             </div>
 
