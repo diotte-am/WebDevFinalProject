@@ -17,6 +17,7 @@ const Search = () => {
             navigate("login")
         } else {
             dispatch({type: "logOut"})
+
         }
     }
 

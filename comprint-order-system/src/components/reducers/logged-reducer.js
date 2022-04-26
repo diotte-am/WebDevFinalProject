@@ -10,6 +10,7 @@ const LoggedReducer = (state = user
         return state;
     }else if(action.type === "logIn"){
         state.loggedIn = true;
+        state.username = action.username;
         return state;
     }
             return state;

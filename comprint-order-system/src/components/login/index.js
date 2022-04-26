@@ -1,11 +1,39 @@
-import React from "react";
+import React, {useState} from "react";
 import {Link} from "react-router-dom";
+import {useDispatch, useSelector} from "react-redux";
+import {useNavigate} from "react-router-dom";
 
 const Login = () => {
 
-    const handleSubmit = () => {
+    const [loginForm, setLoginForm] = useState({userName: "", password: ""});
+    const profiles = useSelector(state => state.users);
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
 
+    const handleUsername = (e) => {
+        loginForm.userName = e.target.value;
+        setLoginForm(loginForm)
     }
+
+    const handlePassword = (e) => {
+        loginForm.password = e.target.value;
+        setLoginForm(loginForm)
+    }
+
+    const handleSubmit = () => {
+        if(loginForm.userName === "" || loginForm.password ===""){
+            alert("Login failed! Please provide valid username and password")
+        } else {
+            const profileResult = profiles.find(profile => profile.username === loginForm.userName);
+            console.log("Profile Result: " + profileResult.username)
+            if(profileResult.password === loginForm.password){
+                dispatch({type: "logIn", username: profileResult.username})
+                navigate("/")
+            }
+        }
+    }
+
+
     return (
         <>
             <div className="bg-black d-grid fw-bold">
@@ -25,13 +53,13 @@ const Login = () => {
 
                     <div className=" col-3 pb-3">
                         <label htmlFor="username" className="form-label">Username</label>
-                        <input type="text" className="form-control" id="username"
+                        <input onChange={handleUsername} type="text" className="form-control" id="username"
                                placeholder="Username"/>
                     </div>
 
                     <div className=" col-3 pb-3">
                         <label htmlFor="password" className="form-label">Password</label>
-                        <input type="text" className="form-control" id="password"
+                        <input onChange={handlePassword} type="text" className="form-control" id="password"
                                placeholder="Password"/>
                     </div>
 
