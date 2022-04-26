@@ -12,6 +12,7 @@ import SearchResultDetail from "./components/search/search-result-detail";
 import ProfileEdit from "./components/profile/profile-edit";
 import OrderReceived from "./components/create-order/order-received";
 import OrderEdit from "./components/create-order/order-edit";
+import Register from "./components/register";
 
 
 function App() {
@@ -37,6 +38,8 @@ function App() {
                                    element={<Search />} />
                             <Route path={"login"}
                                    element={<Login />} />
+                            <Route path={"register"}
+                                   element={<Register />} />
                             <Route path={"profile"}
                                    element={<Profile />}/>
                             <Route path={"profile/edit"}

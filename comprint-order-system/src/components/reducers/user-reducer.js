@@ -29,6 +29,10 @@ const users = [{
 ]
 
 const UserReducer = (state = users, action) => {
+    if(action.type === "addUser"){
+        console.log("adduser" + JSON.stringify(action.payload))
+        return [action.payload, ...state];
+    }
 
     return state;
 

@@ -25,12 +25,17 @@ const Login = () => {
             alert("Login failed! Please provide valid username and password")
         } else {
             const profileResult = profiles.find(profile => profile.username === loginForm.userName);
-            console.log("Profile Result: " + profileResult.username)
-            if(profileResult.password === loginForm.password){
+            console.log("Profile Result: " + profileResult.username + " " + profileResult.password)
+            console.log("Login Form: " + loginForm.userName + " " + loginForm.password )
+            if(profileResult.password == loginForm.password){
                 dispatch({type: "logIn", username: profileResult.username})
                 navigate("/")
             }
         }
+    }
+
+    const handleRegister = () => {
+        navigate("/register")
     }
 
 
@@ -46,11 +51,11 @@ const Login = () => {
                 </Link>
 
             </div>
-            <h4 className="alert-light text-dark fw-bold p-2">
+            <h4 className="alert-warning text-dark fw-bold p-2">
                 Login
             </h4>
             <div className="container col-11 bg-light mt-4 d-grid rounded d-block ">
-
+                {JSON.stringify(profiles)}
                     <div className=" col-3 pb-3">
                         <label htmlFor="username" className="form-label">Username</label>
                         <input onChange={handleUsername} type="text" className="form-control" id="username"
@@ -63,15 +68,23 @@ const Login = () => {
                                placeholder="Password"/>
                     </div>
 
-                <div className=" col-3 pb-3">
-                   <button onClick={handleSubmit} className="float-end btn-secondary btn">
-                        Submit
-                    </button>
-                </div>
+                <div className=" col-3 pb-3 ">
+                    <div className="m-2">
+                        <button onClick={handleSubmit} className="float-end btn-warning btn m-1 text-dark fw-bold">
+                            Submit
+                        </button>
+                    </div>
+
+                    <div className="m-2">
+                        <button onClick={handleRegister} className="float-end btn-warning btn m-1 text-dark fw-bold">
+                            Register
+                        </button>
+                    </div>
 
 
+
+               </div>
             </div>
-
         </>
     )
 }
