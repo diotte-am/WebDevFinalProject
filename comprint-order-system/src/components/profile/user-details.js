@@ -4,7 +4,7 @@ import {useNavigate} from "react-router-dom";
 import {useSelector} from "react-redux";
 
 
-const UserDetails = ({user = {user}}
+const UserDetails = ({user}
 ) => {
     const navigate = useNavigate()
     const loggedIn = useSelector(state => state.isLogged)
