@@ -30,8 +30,19 @@ const users = [{
 
 const UserReducer = (state = users, action) => {
     if(action.type === "addUser"){
-        console.log("adduser" + JSON.stringify(action.payload))
         return [action.payload, ...state];
+    } else if (action.type === "modifyProfile"){
+        return state.map(profile => {
+            if(profile._id === action.payload._id){
+                profile.name = action.payload.name
+                profile.phonenumber = action.payload.phonenumber
+                profile.extension = action.payload.extension
+                profile.password = action.payload.password
+            }
+            console.log(state)
+            return profile;
+        });
+
     }
 
     return state;

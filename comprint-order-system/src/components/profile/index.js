@@ -1,9 +1,10 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {Link, useNavigate} from "react-router-dom";
 import UserDetails from "./user-details";
 import {useSelector} from "react-redux";
 import {useState} from "react";
 import ProfileResults from "./profile-results";
+import axios from "axios";
 
 const Profile = () => {
     const isLogged = useSelector(state => state.isLogged);
@@ -12,6 +13,10 @@ const Profile = () => {
     const [usernameSearch, setUsernameSearch] = useState("")
     const [profileSearch, setProfileSearch] = useState([]);
 
+    const findAllUsers = async () => {
+        const users = await axios.get('http://localhost:4000/api/users');
+        console.log("Users = " + JSON.stringify(users.data))
+    }
 
     const handleLogin = () => {
         if(isLogged.loggedIn){
@@ -34,6 +39,10 @@ const Profile = () => {
         setProfileSearch(profileResult)
     }
 
+    // forces redraw on change
+    useEffect(() => {
+        findAllUsers();
+    }, [])
 
     return(
         <>

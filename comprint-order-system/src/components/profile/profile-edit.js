@@ -1,11 +1,43 @@
-import React from "react";
+import React, {useState} from "react";
 import {Link, useLocation} from "react-router-dom";
+import {useDispatch, useSelector} from "react-redux";
 
 const ProfileEdit = () => {
     const {state} = useLocation();
+    const dispatch = useDispatch();
+    const [profileUpdate, setProfileUpdate] = useState(state.user);
+    const currentUser = useSelector(state => state.isLogged)
+    const canEditUsername = state.user.username === "admin" && state.user.username !== currentUser.username
+
+    const handleName = (e) => {
+        profileUpdate.name = e.target.value;
+        setProfileUpdate(profileUpdate)
+    }
+    const handleUsername = (e) => {
+        profileUpdate.username = e.target.value;
+        setProfileUpdate(profileUpdate)
+    }
+    const handleExt = (e) => {
+        profileUpdate.extension = e.target.value;
+        setProfileUpdate(profileUpdate)
+    }
+    const handlePhone = (e) => {
+        profileUpdate.phonenumber = e.target.value;
+        setProfileUpdate(profileUpdate)
+    }
+    const handlePassword = (e) => {
+        const password = e.target.value;
+        profileUpdate.extension = password.trim();
+        setProfileUpdate(profileUpdate)
+    }
+    const handleSubmit = () => {
+        dispatch({type: "modifyProfile", payload: profileUpdate})
+
+    }
 
     return (
         <>
+            {JSON.stringify(profileUpdate)}
 
             <div className="bg-black d-grid fw-bold">
                 <Link to={"../profile"}>
@@ -26,30 +58,31 @@ const ProfileEdit = () => {
 
                 <div className=" col-6">
                     <label htmlFor="name" className="form-label mt-2">Name</label>
-                    <input  type="text" className="form-control" id="name"
+                    <input onChange={handleName} type="text" className="form-control" id="name"
                            placeholder={state.user.name}/>
                 </div>
                     <div className=" col-4">
-                        <label htmlFor="username" className="form-label mt-2">Username</label>
-                        <input  type="text" className="form-control" id="username"
-                           placeholder={state.user.username}/>
+                        <label htmlFor="username" className="form-label mt-2"  >Username</label>
+                        <input onChange={handleUsername} type="text" className="form-control" id="username"
+                           placeholder={state.user.username} disabled={!canEditUsername}/>
                     </div>
                     <div className=" col-4">
                         <label htmlFor="phoneNumber" className="form-label mt-2">Phone Number</label>
-                        <input  type="text" className="form-control" id="phoneNumber"
+                        <input onChange={handlePhone} type="text" className="form-control" id="phoneNumber"
                                 placeholder={state.user.phonenumber}/>
                     </div>
                     <div className=" col-2 pb-4">
                         <label htmlFor="ext" className="form-label mt-2">Ext.</label>
-                        <input  type="text" className="form-control" id="ext"
+                        <input onChange={handleExt} type="text" className="form-control" id="ext"
                                 placeholder={state.user.extension}/>
                     </div>
                     <div className=" col-4 pb-4">
-                        <label htmlFor="ext" className="form-label mt-2">Password</label>
-                        <input  type="text" className="form-control" id="ext"
+                        <label htmlFor="password" className="form-label mt-2">Password</label>
+                        <input onChange={handlePassword} type="text" className="form-control" id="password"
                                 placeholder="*******"/>
                     </div>
                     <hr/>
+
                 </div>
                 {state.user.department === "ADMIN" ?
 
@@ -99,9 +132,10 @@ const ProfileEdit = () => {
                         </div>
 
                     </div> :
-                    ""
 
-                }
+                    <div >
+                        <button onClick={handleSubmit} type="button" className="mt-4 btn btn-warning text-dark fw-bold"> Submit </button>
+                    </div>}
 
 
             </div>
