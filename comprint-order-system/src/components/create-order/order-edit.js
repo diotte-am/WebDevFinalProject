@@ -44,17 +44,17 @@ const OrderEdit = () => {
 
     <div className=" col-6">
         <label htmlFor="client" className="form-label mt-2">Client</label>
-        <input onChange={handleName} type="text" className="form-control" id="client" placeholder={state.client}/>
+        <input onChange={handleName} type="text" className="form-control" id="client" defaultValue={state.client}/>
     </div>
     <hr/>
     <div className=" col-6">
         <label htmlFor="dueDate" className="form-label mt-2">Due Date</label>
-        <input onChange={handleDueDate} type="date" className="form-control" id="dueDate"/> CURRENT DUE DATE: {state.dueDate}
+        <input onChange={handleDueDate} type="date" className="form-control" id="dueDate" /> CURRENT DUE DATE: {state.dueDate}
     </div>
 <hr/>
     <div className=" col-6">
         <label htmlFor="client" className="form-label mt-2">Quantity</label>
-        <input onChange={handleQuantity} type="text" className="form-control" id="quantity" placeholder={state.quantity}/>
+        <input onChange={handleQuantity} type="text" className="form-control" id="quantity" defaultValue={state.quantity}/>
     </div>
     <hr/>
 

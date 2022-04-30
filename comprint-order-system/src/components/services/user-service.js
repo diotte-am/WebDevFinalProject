@@ -29,10 +29,9 @@ export const removeUser = async (dispatch, userForm) => {
 
 export const updateUser = async (dispatch, updatedUser) => {
     const user = await axios.put(`http://localhost:4000/api/update/user/${updatedUser._id}`, updatedUser);
-    if(user){
         dispatch({
             type: "updateUser",
             payload: updatedUser
         })
-    }
+
 }

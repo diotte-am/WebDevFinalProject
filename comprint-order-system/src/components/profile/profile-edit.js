@@ -84,6 +84,7 @@ const ProfileEdit = () => {
                         <input onChange={handlePassword} type="text" className="form-control" id="password"
                                 placeholder="*******"/>
                     </div>
+                    <button onClick={handleDelete} className="btn btn-outline-danger btn-sm"> DELETE PROFILE</button>
                     <hr/>
 
                 </div>
@@ -127,7 +128,7 @@ const ProfileEdit = () => {
                                 <option value="SHIPPING">Shipping</option>
                             </select>
                             <br/>
-                            <button onClick={handleDelete} className="btn btn-outline-danger btn-sm"> DELETE PROFILE</button>
+
                             <hr/>
                             <div >
                                 <button type="button" className="mt-4 btn btn-warning text-dark fw-bold"> Submit </button>

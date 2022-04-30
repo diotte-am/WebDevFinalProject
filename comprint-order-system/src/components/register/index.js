@@ -47,7 +47,7 @@ const Register = () => {
         setRegisterForm(registerForm)
     }
     const handleSubmit = () => {
-        registerForm._id = new Date().getTime() + 1;
+
         setRegisterForm(registerForm)
         userService.register(dispatch, registerForm)
 

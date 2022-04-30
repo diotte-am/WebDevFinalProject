@@ -23,7 +23,5 @@ export const deleteOrder = async (dispatch, orderToDelete) => {
             {
                 type: "deleteOrder",
                 payload: orderToDelete
-            }
-        )
-    }
-}
+            })
+    }}
