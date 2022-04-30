@@ -3,8 +3,7 @@ import {Link, useNavigate} from "react-router-dom";
 import SearchResultList from "./search-result-list"
 import {useSelector} from "react-redux";
 import {useDispatch} from "react-redux";
-import axios from "axios";
-
+import * as poService from "../services/purchase-order-service"
 
 const Search = () => {
     const orders = useSelector(state => state.POS);
@@ -48,12 +47,7 @@ const Search = () => {
     }
 
     const findAllOrders = async () => {
-            const response = await axios.get('http://localhost:4000/api/pos');
-            console.log(response.data)
-            dispatch({
-                    type: "allOrders",
-                    payload: response.data
-            })
+        poService.findAllOrders(dispatch)
     }
 
     useEffect(() => {

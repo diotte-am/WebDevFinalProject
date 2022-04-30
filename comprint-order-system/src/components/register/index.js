@@ -50,7 +50,7 @@ const Register = () => {
         registerForm._id = new Date().getTime() + 1;
         setRegisterForm(registerForm)
         userService.register(dispatch, registerForm)
-        dispatch({type: "addUser", payload: registerForm})
+
         navigate("/login")
     }
 

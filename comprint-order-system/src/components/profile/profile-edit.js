@@ -42,8 +42,6 @@ const ProfileEdit = () => {
 
     return (
         <>
-            {JSON.stringify(profileUpdate)}
-
             <div className="bg-black d-grid fw-bold">
                 <Link to={"../profile"}>
                     <i className="fa-solid fa-arrow-left-long text-white float-start ps-3 pt-2"></i>

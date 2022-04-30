@@ -18,7 +18,7 @@ const POS =[ {"status":"PROOFED",
 
 const PoReducer = (state = POS, action) => {
     if (action.type === "addOrder") {
-        return [action.payload.orderForm, ...state]
+        return [action.payload, ...state]
     } else if (action.type === "deleteOrder") {
         return state.filter(po => po._id !== action.payload)
     } else if (action.type === "modifyOrder") {

@@ -3,6 +3,7 @@ import {useState} from "react";
 import PrintLocations from "./print-locations"
 import {useNavigate} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
+import * as poService from "../services/purchase-order-service"
 
 
 const OrderForm = () => {
@@ -76,14 +77,13 @@ const OrderForm = () => {
 
     const handleSumbit = () => {
         orderForm.location = printLocations;
-        const date = new Date()
-        orderForm.dateAdded = date.getFullYear() + "-" + date.getMonth() + "-" + date.getDate()
+        orderForm.dateAdded = new Date().toLocaleDateString('en-CA')
         orderForm.status = "RECEIVED"
-        orderForm._id = new Date().getTime();
+        orderForm._id = new Date().getTime() + 2;
         orderForm.addedBy = user.username;
         setOrderForm(orderForm)
         navigate("/order/received", {state: {orderForm}})
-        dispatch({type: "addOrder", payload: {orderForm}})
+        poService.createNewOrder(dispatch, orderForm)
     }
 
 
