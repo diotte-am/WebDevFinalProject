@@ -1,8 +1,9 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {Link, useNavigate} from "react-router-dom";
 import SearchResultList from "./search-result-list"
 import {useSelector} from "react-redux";
 import {useDispatch} from "react-redux";
+import axios from "axios";
 
 
 const Search = () => {
@@ -12,6 +13,8 @@ const Search = () => {
     const loggedIn = useSelector(state => state.isLogged.loggedIn)
     const username = useSelector(state => state.isLogged.username)
     const navigate = useNavigate();
+
+
     const handleLogin = () => {
         if (!loggedIn) {
             navigate("login")
@@ -20,7 +23,6 @@ const Search = () => {
 
         }
     }
-
     const handleStatus = (e) => {
         const value = e.target.value;
         switch(value){
@@ -44,6 +46,19 @@ const Search = () => {
         }
 
     }
+
+    const findAllOrders = async () => {
+            const response = await axios.get('http://localhost:4000/api/pos');
+            console.log(response.data)
+            dispatch({
+                    type: "allOrders",
+                    payload: response.data
+            })
+    }
+
+    useEffect(() => {
+        findAllOrders();
+    })
 
     return(
         <>

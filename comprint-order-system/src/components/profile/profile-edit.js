@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import {Link, useLocation} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
+import * as userService from "../services/user-service"
 
 const ProfileEdit = () => {
     const {state} = useLocation();
@@ -31,8 +32,12 @@ const ProfileEdit = () => {
         setProfileUpdate(profileUpdate)
     }
     const handleSubmit = () => {
-        dispatch({type: "modifyProfile", payload: profileUpdate})
+        userService.updateUser(dispatch, profileUpdate)
 
+    }
+
+    const handleDelete = () => {
+        userService.removeUser(dispatch, profileUpdate);
     }
 
     return (
@@ -124,6 +129,7 @@ const ProfileEdit = () => {
                                 <option value="SHIPPING">Shipping</option>
                             </select>
                             <br/>
+                            <button onClick={handleDelete} className="btn btn-outline-danger btn-sm"> DELETE PROFILE</button>
                             <hr/>
                             <div >
                                 <button type="button" className="mt-4 btn btn-warning text-dark fw-bold"> Submit </button>

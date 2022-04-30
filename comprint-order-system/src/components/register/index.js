@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import {Link, useNavigate} from "react-router-dom";
 import {useDispatch} from "react-redux";
+import * as userService from "../services/user-service"
 
 const Register = () => {
     const navigate = useNavigate();
@@ -13,7 +14,6 @@ const Register = () => {
     }
     const handleUsername = (e) => {
         registerForm.username = e.target.value;
-        console.log(registerForm)
         setRegisterForm(registerForm)
     }
     const handlePassword = (e) => {
@@ -47,6 +47,9 @@ const Register = () => {
         setRegisterForm(registerForm)
     }
     const handleSubmit = () => {
+        registerForm._id = new Date().getTime() + 1;
+        setRegisterForm(registerForm)
+        userService.register(dispatch, registerForm)
         dispatch({type: "addUser", payload: registerForm})
         navigate("/login")
     }

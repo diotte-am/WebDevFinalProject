@@ -26,7 +26,6 @@ const UserDetails = ({user}
     }
     return(
         <div className="container bg-light mt-3 p-3 d-grid rounded">
-            {console.log(user)}
             <h5 className="fw-bold">{user.name}</h5>
             <div className="container">
 

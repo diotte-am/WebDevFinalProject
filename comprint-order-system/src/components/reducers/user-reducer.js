@@ -29,9 +29,9 @@ const users = [{
 ]
 
 const UserReducer = (state = users, action) => {
-    if(action.type === "addUser"){
+    if(action.type === "register"){
         return [action.payload, ...state];
-    } else if (action.type === "modifyProfile"){
+    } else if (action.type === "updateUser"){
         return state.map(profile => {
             if(profile._id === action.payload._id){
                 profile.name = action.payload.name
@@ -39,10 +39,13 @@ const UserReducer = (state = users, action) => {
                 profile.extension = action.payload.extension
                 profile.password = action.payload.password
             }
-            console.log(state)
             return profile;
         });
 
+    } else if (action.type === "findAllUsers"){
+        return action.payload;
+    } else if (action.type === "removeUser"){
+        return state.filter(u => u._id !== action.payload._id)
     }
 
     return state;

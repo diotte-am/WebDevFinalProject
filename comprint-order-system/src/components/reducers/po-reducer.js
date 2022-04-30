@@ -33,7 +33,11 @@ const PoReducer = (state = POS, action) => {
            }
            return po;
        })
-    } else {
+    } else if (action.type === "allOrders"){
+        return action.payload
+    }
+
+        else {
         return state;
     }
 
