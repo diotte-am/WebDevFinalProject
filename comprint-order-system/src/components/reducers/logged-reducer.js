@@ -1,6 +1,6 @@
 const user =
-    {loggedIn: true,
-        username: "adiotte"}
+    {loggedIn: false,
+        username: ""}
 
 
 const LoggedReducer = (state = user

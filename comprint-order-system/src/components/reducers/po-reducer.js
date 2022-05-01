@@ -8,7 +8,6 @@ const PoReducer = (state = POS, action) => {
         return newOrders;
     } else if (action.type === "modifyOrder") {
        const neworders = state.map(po => po._id === action.payload.PONumber ? action.payload : po);
-        console.log(neworders);
         return neworders;
     } else if (action.type === "allOrders"){
         return action.payload
