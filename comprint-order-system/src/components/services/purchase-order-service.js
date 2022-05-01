@@ -23,5 +23,12 @@ export const deleteOrder = async (dispatch, orderToDelete) => {
             type: "deleteOrder",
             payload: orderToDelete
         })
-    }
-    }
+    }}
+
+export const updateOrder = async (dispatch, updatedOrder) => {
+    const order = await axios.put(`http://localhost:4000/api/update/order/${updatedOrder._id}`, updatedOrder)
+    dispatch({
+        type: "modifyOrder",
+        payload: updatedOrder
+    })
+}

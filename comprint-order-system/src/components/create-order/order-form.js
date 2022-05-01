@@ -79,7 +79,6 @@ const OrderForm = () => {
         orderForm.location = printLocations;
         orderForm.dateAdded = new Date().toLocaleDateString('en-CA')
         orderForm.status = "RECEIVED"
-        orderForm._id = new Date().getTime() + 2;
         orderForm.addedBy = user.username;
         setOrderForm(orderForm)
         navigate("/order/received", {state: {orderForm}})

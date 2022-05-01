@@ -1,6 +1,7 @@
 import React from "react";
 import {Link, useLocation, useNavigate} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
+import * as poService from "../services/purchase-order-service"
 
 const OrderEdit = () => {
     const {state} = useLocation();
@@ -19,7 +20,7 @@ const OrderEdit = () => {
     }
 
     const handleButton = () => {
-        dispatch({type: "modifyOrder", payload: state, logged: user})
+        poService.updateOrder(dispatch, state)
         navigate("/")
     }
     return (
