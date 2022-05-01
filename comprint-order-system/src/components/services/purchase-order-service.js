@@ -19,9 +19,9 @@ export const createNewOrder = async (dispatch, orderForm) => {
 export const deleteOrder = async (dispatch, orderToDelete) => {
     const pid = await axios.delete(`http://localhost:4000/api/remove/order/${orderToDelete._id}`)
     if(pid){
-        dispatch(
-            {
-                type: "deleteOrder",
-                payload: orderToDelete
-            })
-    }}
+        dispatch({
+            type: "deleteOrder",
+            payload: orderToDelete
+        })
+    }
+    }

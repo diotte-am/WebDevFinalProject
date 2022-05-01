@@ -24,7 +24,6 @@ export const removeUser = async (dispatch, userForm) => {
             payload: userForm
         })
     }
-
 }
 
 export const updateUser = async (dispatch, updatedUser) => {

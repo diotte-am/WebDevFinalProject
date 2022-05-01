@@ -3,6 +3,7 @@ import {Link, useLocation, useNavigate} from "react-router-dom";
 import StatusConditional from "./status-conditional";
 import RenderLocationItem from "./render-location-item";
 import {useDispatch} from "react-redux";
+import * as POService from "../services/purchase-order-service"
 
 
 const SearchResultDetail = () => {
@@ -19,8 +20,9 @@ const SearchResultDetail = () => {
         alert("edit shipping for " + state.result.PONumber)
     }
     const HandleDelete = () => {
-        dispatch({type: "deleteOrder", payload: state.result._id})
-        navigate("/search")
+        const POToDelete = state.result;
+        POService.deleteOrder(dispatch, POToDelete)
+        navigate("/")
     }
 
 
