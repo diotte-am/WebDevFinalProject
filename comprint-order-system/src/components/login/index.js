@@ -33,7 +33,7 @@ const Login = () => {
                 alert("This username does not exist!")
             }else{
                 if(profileResult.password === loginForm.password){
-                    dispatch({type: "logIn", username: profileResult.username})
+                    dispatch({type: "logIn", username: profileResult.username, department: profileResult.department})
                     navigate("/")
                 } else {
                     alert(JSON.stringify(profileResult.password))

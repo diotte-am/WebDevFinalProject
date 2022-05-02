@@ -1,19 +1,20 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {Link, useNavigate} from "react-router-dom";
 import Recents from "./recents";
 import {useDispatch, useSelector} from "react-redux";
+import * as POService from "../services/purchase-order-service";
 
 
 
 const Home = () => {
-    const loggedIn = useSelector(state => state.isLogged.loggedIn)
-    const username = useSelector(state => state.isLogged.username)
+    const logged = useSelector(state => state.isLogged)
+
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
 
     const handleLogin = () => {
-        if(loggedIn){
+        if(logged.loggedIn){
             dispatch({type: "logOut"})
             return(
                 navigate("/")
@@ -22,11 +23,20 @@ const Home = () => {
             navigate("login")
         }
     }
+    const getAllOrders = () => {
+        POService.findAllOrders(dispatch);
+    }
+
+    useEffect(() => {
+        getAllOrders();
+    })
 
     return(
+
+
         <>
                 <button onClick={handleLogin} type="button" className="d-block float-end btn btn-outline-dark fw-bold">
-                    {loggedIn ? username + ' (Log Out)' : 'Log In' }
+                    {logged.loggedIn ? logged.username + ' (Log Out)' : 'Log In' }
                 </button>
 
                 <img className="d-block mx-auto mt-4 mb-4" src='../images/comprint-logo.png' alt="comprintLogo"/>
@@ -48,12 +58,14 @@ const Home = () => {
                 <Link to={"profile"} className="d-grid col-5 container align-content-center">
                     <button type="button" className="btn btn-warning m-2 text-dark fw-bold">Profile</button>
                 </Link>
-
+            {logged.department === "PRODUCTION" ?
                 <Link to="shipping" className="d-grid col-5 container align-content-center">
                     <button type="button" className="btn btn-dark m-2 fw-bold">Get Shipping Rates</button>
                 </Link>
+            : ""}
 
-            <Recents />
+
+            <Recents current={logged.username}/>
 
 
 
