@@ -49,7 +49,7 @@ const Home = () => {
                     <button type="button" className="btn btn-warning m-2 text-dark fw-bold">Profile</button>
                 </Link>
 
-                <Link to="detail" className="d-grid col-5 container align-content-center">
+                <Link to="shipping" className="d-grid col-5 container align-content-center">
                     <button type="button" className="btn btn-dark m-2 fw-bold">Get Shipping Rates</button>
                 </Link>
 

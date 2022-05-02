@@ -1,7 +1,6 @@
 import React from "react";
 
 const RenderLocationItem = (po) => {
-    console.log(po)
     return (
         <div className="container">
 

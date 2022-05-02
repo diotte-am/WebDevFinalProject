@@ -13,6 +13,7 @@ import ProfileEdit from "./components/profile/profile-edit";
 import OrderReceived from "./components/create-order/order-received";
 import OrderEdit from "./components/create-order/order-edit";
 import Register from "./components/register";
+import ShippingDetails from "./components/detail/shipping-details";
 
 
 function App() {
@@ -44,12 +45,11 @@ function App() {
                                    element={<Profile />}/>
                             <Route path={"profile/edit"}
                                    element={<ProfileEdit />} />
-
-
-
-                            <Route path={"detail"}
+                            <Route path={"shipping"}
                                    element={<Detail/>} />
-                            <Route path={"search/detail"}
+                            <Route path={"shipping/detail/:pid"}
+                                   element={<ShippingDetails/>} />
+                            <Route path={"search/detail/:pid"}
                                    element={<SearchResultDetail/>} />
                         </Route>
                     </Routes>

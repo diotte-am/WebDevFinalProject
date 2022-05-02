@@ -16,10 +16,9 @@ const Search = () => {
 
     const handleLogin = () => {
         if (!loggedIn) {
-            navigate("login")
+            navigate("/login")
         } else {
             dispatch({type: "logOut"})
-
         }
     }
     const handleStatus = (e) => {
@@ -57,36 +56,25 @@ const Search = () => {
     return(
         <>
             <div className="bg-black d-grid fw-bold">
-
-                <Link to={"../"}>
-                    <i className="fa-solid fa-arrow-left-long text-white  ps-3 pt-2"></i>
+                <div className="container">
+                    <Link to={"../"}>
+                        <i className="fa-solid fa-arrow-left-long text-white  ps-3 pt-2"></i>
+                    </Link>
                     <button onClick={handleLogin} type="button" className="d-block float-end btn-sm btn-info fw-bold m-2 text-dark">
                         {loggedIn ? username + ' (Log Out)' : 'Log In' }
                     </button>
-
-                </Link>
+                </div>
                 <p className="text-center text-light">
                     Comprint Order System
                 </p>
-
             </div>
+
             <h4 className="alert-info text-dark fw-bold p-2">
                 Search Purchase Orders
             </h4>
 
             <div className="container ps-3 pe-3">
-                <p className="form-label mt-4 left">Search by purchase order number, client name, due date, or date received:</p>
-                <div className="input-group">
-                    <select className="form-select pb-2" id="searchParameters" aria-label="Search by Parameter">
-                        <option defaultValue>Select</option>
-                        <option value="PONumber">PO Number</option>
-                        <option value="ClientName">Client Name</option>
-                        <option value="DueDate">Due Date</option>
-                        <option value="DateReceived">Date Received</option>
-                    </select>
-                    <input className="input-group-text col-9 text-start" id="searchTerms" placeholder="Search order system" />
-                    <button className="btn btn-info btn-dark fw-bold" type="button">Search</button>
-                </div>
+
 
                 <div className="container mt-4 list-group">
                     <div className="p-1">

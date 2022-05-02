@@ -83,14 +83,16 @@ const ProfileEdit = () => {
                         <label htmlFor="password" className="form-label mt-2">Password</label>
                         <input onChange={handlePassword} type="text" className="form-control" id="password"
                                 placeholder="*******"/>
+
                     </div>
-                    <button onClick={handleDelete} className="btn btn-outline-danger btn-sm"> DELETE PROFILE</button>
+
                     <hr/>
 
                 </div>
                 {state.user.department === "ADMIN" ?
 
                     <div className="row d-flex ps-3 pe-3">
+
                         <div className=" col-4">
                             <label htmlFor="dateOfHire" className="form-label mt-2">Date of Hire</label>
                             <input  type="date" className="form-control" id="dateOfHire"
@@ -127,8 +129,9 @@ const ProfileEdit = () => {
                                 <option value="WAREHOUSE">Warehouse</option>
                                 <option value="SHIPPING">Shipping</option>
                             </select>
-                            <br/>
 
+                            <br/>
+                            <button onClick={handleDelete} className="btn btn-outline-danger btn-sm"> DELETE PROFILE</button>
                             <hr/>
                             <div >
                                 <button type="button" className="mt-4 btn btn-warning text-dark fw-bold"> Submit </button>

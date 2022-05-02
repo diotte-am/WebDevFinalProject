@@ -1,12 +1,15 @@
 import React from "react";
-import {Link, useLocation, useNavigate} from "react-router-dom";
+import {Link, useLocation, useNavigate, useParams} from "react-router-dom";
 import StatusConditional from "./status-conditional";
 import RenderLocationItem from "./render-location-item";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import * as POService from "../services/purchase-order-service"
 
 
 const SearchResultDetail = () => {
+    const id = useParams();
+    const pos = useSelector(state => state.pos);
+    console.log(pos)
     const {state} = useLocation();
     const navigate = useNavigate();
     const dispatch = useDispatch();
@@ -17,7 +20,7 @@ const SearchResultDetail = () => {
 
     const HandleShipping = () => {
         // give warning if there is already shipping data that it will be overwritten
-        alert("edit shipping for " + state.result.PONumber)
+        navigate(`/shipping/detail/${id.pid}`)
     }
     const HandleDelete = () => {
         const POToDelete = state.result;
@@ -83,6 +86,25 @@ const SearchResultDetail = () => {
 
                     <RenderLocationItem location={state.result}/>
                 </div>
+
+                {state.result.shipping ?
+                    <div className="mt-4">
+
+                        <span className="fw-bold">Shipping Service:</span>
+
+                            <div className="container">
+                                Retail Rate: {state.result.shipping.retailRate}
+                                <br />
+                                Service: {state.result.shipping.Service}
+                                <br />
+                                Delivery Time: {state.result.shipping.deliveryTime}
+                                <br />
+                            </div>
+
+
+                    </div>
+
+                     : ""}
 
 
             </div>

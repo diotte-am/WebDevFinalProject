@@ -5,7 +5,8 @@ import StatusConditional from "./status-conditional";
 const SearchResult = ({result}) => {
     const navigate = useNavigate()
     const handleClick = () => {
-        navigate("/search/detail", {state: {result}})
+        const searchString = result._id;
+        navigate(`/search/detail/${searchString}`, {state: {result}})
     }
     return(
         <>

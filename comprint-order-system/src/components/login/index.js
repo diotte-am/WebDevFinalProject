@@ -10,8 +10,9 @@ const Login = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
+
     const handleUsername = (e) => {
-        loginForm.userName = e.target.value;
+        loginForm.username = e.target.value;
         setLoginForm(loginForm)
     }
 
@@ -21,10 +22,13 @@ const Login = () => {
     }
 
     const handleSubmit = () => {
-        if(loginForm.userName === "" || loginForm.password ===""){
+        if(loginForm.username === "" || loginForm.password ===""){
             alert("Login failed! Please provide valid username and password")
         } else {
-            const profileResult = profiles.find(profile => profile.username === loginForm.userName);
+            profiles.map(p => {
+                console.log(p.username)
+            })
+            const profileResult = profiles.find(profile => profile.username === loginForm.username);
             if(profileResult === undefined){
                 alert("This username does not exist!")
             }else{
@@ -45,6 +49,7 @@ const Login = () => {
 
     return (
         <>
+            {JSON.stringify(profiles)}
             <div className="bg-black d-grid fw-bold">
                 <Link to={"../"}>
                     <i className="fa-solid fa-arrow-left-long text-white float-start ps-3 pt-2"></i>
@@ -59,7 +64,6 @@ const Login = () => {
                 Login
             </h4>
             <div className="container col-11 bg-light mt-4 d-grid rounded d-block ">
-                {JSON.stringify(profiles)}
                     <div className=" col-3 pb-3">
                         <label htmlFor="username" className="form-label">Username</label>
                         <input onChange={handleUsername} type="text" className="form-control" id="username"
