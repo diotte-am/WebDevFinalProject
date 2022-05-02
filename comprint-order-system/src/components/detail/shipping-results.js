@@ -34,7 +34,7 @@ const ShippingResults = (results) => {
                     <div className="text-center fw-bold mt-4">
                         Available Shipping Options:
                         <br/>
-                        {rates.map(r => {
+                        {rates.map(r =>  {
                             return(
                                 <div className="alert-light p-2 d-block text-center container">
                                     <div>

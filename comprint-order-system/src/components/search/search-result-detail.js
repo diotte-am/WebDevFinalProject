@@ -9,7 +9,7 @@ import * as POService from "../services/purchase-order-service"
 const SearchResultDetail = () => {
     const id = useParams();
     const pos = useSelector(state => state.pos);
-    console.log(pos)
+    const current = useSelector(state => state.isLogged)
     const {state} = useLocation();
     const navigate = useNavigate();
     const dispatch = useDispatch();
@@ -28,11 +28,24 @@ const SearchResultDetail = () => {
         navigate("/")
     }
 
+    const handleLogin = () => {
+        if(current.loggedIn){
+            return(
+                alert("logout!")
+            )
+        } else {
+            navigate("/login")
+        }
+    }
 
     return(
         // add modal here
         <>
             <div className="bg-black d-grid fw-bold">
+            <div className="container">
+                <button onClick={handleLogin} type="button" className="d-block float-end btn btn-light btn-sm fw-bold m-2">
+                    {current.loggedIn ? current.username + ' (Log Out)' : 'Log In' }
+                </button>
                 <Link to={"../search"}>
                     <i className="fa-solid fa-arrow-left-long text-white float-start ps-3 pt-2"></i>
 
@@ -40,6 +53,14 @@ const SearchResultDetail = () => {
                         Comprint Order System
                     </p>
                 </Link>
+
+
+
+
+            </div>
+
+
+
 
             </div>
             <h4 className="alert-info text-dark fw-bold p-2">
@@ -51,9 +72,10 @@ const SearchResultDetail = () => {
                 <button onClick={HandleEdit} className="btn btn-info btn-sm text-dark fw-bold" type="button">
                     Edit
                 </button>
-                <button onClick={HandleShipping} className="btn btn-info btn-sm text-dark fw-bold" type="button">
+                {current.department === "PRODUCTION" ? <button onClick={HandleShipping} className="btn btn-info btn-sm text-dark fw-bold" type="button">
                     Set Shipping
-                </button>
+                </button> : ""}
+
                 <button onClick={HandleDelete} className="btn btn-info btn-sm text-dark fw-bold" type="button">
                     Delete
                 </button>

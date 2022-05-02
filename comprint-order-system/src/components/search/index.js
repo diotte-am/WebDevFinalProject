@@ -6,8 +6,7 @@ import {useDispatch} from "react-redux";
 import * as poService from "../services/purchase-order-service"
 
 const Search = () => {
-    const orders = useSelector(state => state.POS);
-    const [search, setSearch] = useState([...orders])
+
     const dispatch = useDispatch();
     const loggedIn = useSelector(state => state.isLogged.loggedIn)
     const username = useSelector(state => state.isLogged.username)
@@ -21,6 +20,18 @@ const Search = () => {
             dispatch({type: "logOut"})
         }
     }
+
+    const findAllOrders = async () => {
+        poService.findAllOrders(dispatch)
+    }
+
+    useEffect(() => {
+        findAllOrders();
+    })
+
+    const orders = useSelector(state => state.POS);
+    const [search, setSearch] = useState([...orders])
+
     const handleStatus = (e) => {
         const value = e.target.value;
         switch(value){
@@ -45,13 +56,8 @@ const Search = () => {
 
     }
 
-    const findAllOrders = async () => {
-        poService.findAllOrders(dispatch)
-    }
 
-    useEffect(() => {
-        findAllOrders();
-    })
+
 
     return(
         <>

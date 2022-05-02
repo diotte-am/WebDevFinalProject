@@ -12,7 +12,7 @@ const Recents = (logged) => {
             <div className="container bg-light col-10 mt-4 d-grid text-center rounded">
 
                 {store.map(po => {
-                    if(logged.current === po.addedBy || logged.current === po.updatedBy){
+                    if((logged.current === po.addedBy || logged.current === po.updatedBy)){
                         return(
                             <>
                                 Orders recently added or updated by: {logged.current}

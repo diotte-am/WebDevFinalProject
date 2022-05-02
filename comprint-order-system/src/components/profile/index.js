@@ -5,6 +5,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {useState} from "react";
 import ProfileResults from "./profile-results";
 import * as userService from "../services/user-service"
+import Recents from "../home/recents";
 
 const Profile = () => {
     const isLogged = useSelector(state => state.isLogged);
@@ -92,7 +93,7 @@ const Profile = () => {
 
                 </div>
 
-
+                <Recents current={isLogged} />
 
 
 
