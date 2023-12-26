@@ -1,87 +1,89 @@
 
-<head>
-<style>
-
-    .parent {
-        position: relative;
-        width: 100%;
-        height: 220px;
-
-      }
-
-    .right {
-        display: block;
-        float: right;
-        margin: 0 0 10 0px;
-        width: 45%;
-    }
-    .left {
-        display: block;
-        float: left;
-        margin: 10 0 0 0px;
-        padding-top: 40px;
-        width: 45%;
-        vertical-align: center;
-        
-    }
-    .div2{
-        padding-top: 5px;
-        clear: both;
-        border-top: 1px solid;
-    }
-
-    figcaption {
-        background-color: black;
-        color: white;
-        font-style: italic;
-        padding: 2px;
-        text-align: center;
-}
-    </style>
-    </head>
-    
-
 # Online Order System for a Contract Screen Printer
 ### Full MERN stack web application - Front End
 This was a project for school, but it was inspired by real life. While I was getting my Master's, I was also working as a graphic designer at a screen printing shop with an incredibly archiac order system. It involved physically printing purchase orders to track them. So, if you needed to update an order, you had to figure out where the physical copies of the order were being kept and update them all by hand. My goal was to create a centralized order system where all parts of the company from the admins who were receiving the orders, the artists proofing the orders, and the folks in production printing the orders, they would all have easy access to the orders and could make the needed updates once. But they would only have the privileges to make changes to orders that aligned with their role and any additions or changes made would have the user's name tied to it, in case there were any questions or problems.
 ##
-<div class=parent>
-    <div class=left> 
+<div>
+    <div style="
+        display: block;
+        float: left;
+        margin: 10 0 0 0px;
+        padding-top: 40px;
+        width: 45%;"> 
     From the landing page, you can login the top right. Or choose one of the three options in the center. Below is a feed showing the most recently added orders in the system. If the user is logged in under the "shipping" department, there is a fourth button underneath for "get shipping info".  
     </div>
-    <figure  class=right>
+    <figure  style=
+        "display: block;
+        float: right;
+        margin: 0 0 10 0px;
+        width: 45%;        float: right;
+        margin: 0 0 10 0px;
+        width: 45%;">
         <figcaption>Landing Page</figcaption>
         <img src="images/HomePage.png"> 
     </figure>
 </div>
-<div class=div2></div>
+<div style=
+        "padding-top: 5px;
+        clear: both;
+        border-top: 1px solid;"
+        ></div>
 
 
-<div class=left> 
+<div style="
+        display: block;
+        float: left;
+        margin: 10 0 0 0px;
+        padding-top: 40px;
+        width: 45%;"> 
       Clicking the pink "create new order button" brings you to this form to submit a new order. An order can contain a number of different print locations that will be priced and printed differently, so it was important the order system could handle a number of different types of prints and attributes. Upon submission, the <a ref="https://github.com/diotte-am/WebDevFinalProjectServer"> web server</a> will create a new PO entry in the connected MongoDB databases. The user who created the purchase order will be recorded.
 </div>
- <figure  class=right>
+ <figure  style="display: block;
+        float: right;
+        margin: 0 0 10 0px;
+        width: 45%;        float: right;
+        margin: 0 0 10 0px;
+        width: 45%;">
     <figcaption>Create a new order</figcaption>
     <img src="images/CreateNewOrder.png"> 
  </figure>
 
 
-<div class=div2></div>
+<div style="padding-top: 5px;
+        clear: both;
+        border-top: 1px solid;"></div>
 
 
-<div class=left> 
+<div style="
+        display: block;
+        float: left;
+        margin: 10 0 0 0px;
+        padding-top: 40px;
+        width: 45%;"> 
       Clicking on the blue "Search Order" button on the landing page will bring you to a screen where you can view all orders. Or filter by print status. The print status reflects how much of the job is completed, as the user completes their segment of the job, they are able to update the status of that order. For example, someone in the art department sucessfully proofs a client and gets an approval to move to production, they are able to set the status from "PROOFED" to "APPROVED".
 </div>
- <figure  class=right>
+ <figure  style="display: block;
+        float: right;
+        margin: 0 0 10 0px;
+        width: 45%;        float: right;
+        margin: 0 0 10 0px;
+        width: 45%;">
     <figcaption>View All Orders</figcaption>
     <img src="images/AllOrders.png"> 
  </figure>
 
 
-<div class=div2></div>
+<div style="padding-top: 5px;
+        clear: both;
+        border-top: 1px solid;"></div>
 
 <div>
-<div class=left> 
+<div style="
+        display: block;
+        float: left;
+        margin: 10 0 0 0px;
+        padding-top: 40px;
+        width: 45%;"> 
       Clicking on the "view details" button will bring you to a page with more information on the order, and three buttons:
       <ul>
         <li> <b>Edit:</b> links to a form where the user can update personal information like address.
@@ -89,51 +91,96 @@ This was a project for school, but it was inspired by real life. While I was get
         <li> <b>Delete:</b> deletes current PO from the database
       </ul>
 </div>
- <figure  class=right>
+ <figure  style="display: block;
+        float: right;
+        margin: 0 0 10 0px;
+        width: 45%;        float: right;
+        margin: 0 0 10 0px;
+        width: 45%;">
     <figcaption>View Details of Purchase Order</figcaption>
     <img src="images/ViewDetails.png"> 
  </figure>
 </div>
 
-<div class=div2></div>
+<div style="padding-top: 5px;
+        clear: both;
+        border-top: 1px solid;"></div>
 
 <div>
-<div class=left> 
+<div style="
+        display: block;
+        float: left;
+        margin: 10 0 0 0px;
+        padding-top: 40px;
+        width: 45%;"> 
     Shipping data is retreived using the <a href="http://www.easypost.com">Easy Post API</a>. Only users with shipping credentials will have access to this page. Click the button corresponding with your desired shipping method and it will be added to the current PO. If a shipping method is already on that order, it will be overwritten. The last user to update the shipping is recorded.
 </div>
- <figure  class=right>
+ <figure  style="display: block;
+        float: right;
+        margin: 0 0 10 0px;
+        width: 45%;        float: right;
+        margin: 0 0 10 0px;
+        width: 45%;">
     <figcaption>View Details of Purchase Order</figcaption>
     <img src="images/ShippingRates.png"> 
  </figure>
 </div>
-<div class=div2></div>
+<div style="padding-top: 5px;
+        clear: both;
+        border-top: 1px solid;"></div>
 
 <div>
-<div class=left> 
+<div style="
+        display: block;
+        float: left;
+        margin: 10 0 0 0px;
+        padding-top: 40px;
+        width: 45%;"> 
       Look up other users to view their details. From this page, hit the "Edit" button to go to a form where that user's details can be update. The fields the user is able to update will depend on what department the user is assigned to. Administrators have the most options on this page.
 </div>
- <figure  class=right>
+ <figure  style="display: block;
+        float: right;
+        margin: 0 0 10 0px;
+        width: 45%;        float: right;
+        margin: 0 0 10 0px;
+        width: 45%;">
     <figcaption>Search for a profile</figcaption>
     <img src="images/SearchProfiles.png"> 
  </figure>
 </div>
-<div class=div2></div>
+<div style="padding-top: 5px;
+        clear: both;
+        border-top: 1px solid;"></div>
 
 
 <div>
-<div class=left> 
+<div style="
+        display: block;
+        float: left;
+        margin: 10 0 0 0px;
+        padding-top: 40px;
+        width: 45%;"> 
       Users are be able to update their personal details - name, email, address, phone number. Users with Admin credentials will also be able to delete this profile, change to full or part time, or change department.
 </div>
- <figure  class=right>
+ <figure  style="display: block;
+        float: right;
+        margin: 0 0 10 0px;
+        width: 45%;        float: right;
+        margin: 0 0 10 0px;
+        width: 45%;">
     <figcaption>Edit a user's profile</figcaption>
     <img src="images/EditProfile.png"> 
  </figure>
 </div>
-<div class=div2></div>
+<div style="padding-top: 5px;
+        clear: both;
+        border-top: 1px solid;"></div>
 
 
 
-<div class=div2></div>
+<div style="padding-top: 5px;
+        clear: both;
+        border-top: 1px solid;"></div>
 
 ## Compilation Instructions
 
