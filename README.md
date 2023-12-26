@@ -1,4 +1,7 @@
+<html>
+<head>
 <style>
+    
     .parent {
         position: relative;
         width: 100%;
@@ -34,8 +37,8 @@
         padding: 2px;
         text-align: center;
 }
-
     </style>
+    </head>
     
 
 # Online Order System for a Contract Screen Printer
@@ -156,3 +159,5 @@ npm start
 
 
 If the <a ref="https://github.com/diotte-am/WebDevFinalProjectServer"> web server</a> isn't running already running at this point, you'll get a network error, but you'll still be able to navigate the website.
+
+</html>
