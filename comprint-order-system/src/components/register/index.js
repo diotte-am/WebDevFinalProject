@@ -50,7 +50,7 @@ const Register = () => {
 
         setRegisterForm(registerForm)
         userService.register(dispatch, registerForm)
-        console.log(registerForm)
+
         navigate("/login")
     }
 
