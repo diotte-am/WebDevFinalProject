@@ -63,7 +63,7 @@ This was a project for school, but it was inspired by real life. While I was get
         clear: both;
         border-top: 1px solid;"></div>
 
-<p style="padding-top: 5px; font-size: 150%"><b>Get Shipping Quotes</b>
+<p style="padding-top: 5px; font-size: 150%"><b>Get Shipping Quote</b>
     <div style="display: block; margin: 0 auto; padding: 10px;">
         Shipping data is retreived using the <a href="http://www.easypost.com">Easy Post API</a>. Only users with shipping credentials will have access to this page. Click the button corresponding with your desired shipping method and it will be added to the current PO. If a shipping method is already on that order, it will be overwritten. The last user to update the shipping is recorded.
     </div>
@@ -133,3 +133,4 @@ npm start
 
 If the <a ref="https://github.com/diotte-am/WebDevFinalProjectServer"> web server</a> isn't running already running at this point, you'll get a network error, but you'll still be able to navigate the website.
 
+https://github.com/diotte-am/WebDevFinalProjectServer
