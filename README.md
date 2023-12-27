@@ -133,4 +133,5 @@ npm start
 
 If the <a ref="https://github.com/diotte-am/WebDevFinalProjectServer"> web server</a> isn't running already running at this point, you'll get a network error, but you'll still be able to navigate the website.
 
+Repository for web server can be found here:
 https://github.com/diotte-am/WebDevFinalProjectServer
